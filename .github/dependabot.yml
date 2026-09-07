@@ -20,17 +20,6 @@ updates:
       include: "scope"
     pull-request-branch-name:
       separator: "/"
-    allow:
-      - dependency-type: "all"
-    ignore:
-      # Ignore major version updates for stability
-      - dependency-name: "@angular/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "typescript"
-        update-types: ["version-update:semver-major"]
-    rebase-strategy: "auto"
-    allow-multiple-dependency-updates: true
-    versioning-strategy: "auto"
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
