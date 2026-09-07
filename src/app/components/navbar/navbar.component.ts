@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   template: `
     <nav
       class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      [class.bg-background/95]="isScrolled"
+      [ngClass]="{ 'bg-background/95': isScrolled }"
       [class.backdrop-blur-md]="isScrolled"
       [class.border-b]="isScrolled"
       [class.border-border]="isScrolled"

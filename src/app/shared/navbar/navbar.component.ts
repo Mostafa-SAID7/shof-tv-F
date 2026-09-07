@@ -1,6 +1,6 @@
 import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,40 +17,24 @@ import { RouterModule } from '@angular/router';
         <span class="text-foreground">shof<span class="text-primary">tv</span></span>
       </a>
 
-      <!-- Center Nav Links (Desktop) -->
-      @if (navStyle === 'pill') {
-        <div class="hidden md:flex items-center glass rounded-full px-1.5 py-1.5">
-          @for (link of centerLinks; track link.label) {
-            <a
-              [routerLink]="link.route"
-              class="px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] rounded-full transition-colors"
-              [class.text-primary]="link.active"
-              [class.text-secondary-foreground]="!link.active"
-              [class.hover:text-foreground]="!link.active"
-            >
-              {{ link.label }}
-            </a>
-          }
-        </div>
-      } @else {
-        <div class="hidden md:flex items-center gap-7">
-          @for (link of centerLinks; track link.label) {
-            <a
-              [routerLink]="link.route"
-              class="text-xs font-semibold uppercase tracking-[0.14em] transition-colors"
-              [class.text-primary]="link.active"
-              [class.text-secondary-foreground]="!link.active"
-              [class.hover:text-foreground]="!link.active"
-            >
-              {{ link.label }}
-            </a>
-          }
-        </div>
-      }
+      <!-- Consistent site navigation -->
+      <div class="hidden md:flex items-center glass rounded-full px-1.5 py-1.5">
+        @for (link of siteLinks; track link.label) {
+          <a
+            [routerLink]="link.route"
+            class="px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] rounded-full transition-colors"
+            [class.text-primary]="isActive(link.route)"
+            [class.text-secondary-foreground]="!isActive(link.route)"
+            [ngClass]="{ 'hover:text-foreground': !isActive(link.route) }"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </div>
 
       <!-- Right Side -->
       <div class="hidden md:flex items-center gap-4">
-        @for (action of rightActions; track action.label) {
+        @for (action of siteActions; track action.label) {
           @if (action.style === 'text') {
             <a [routerLink]="action.route" class="text-xs font-semibold uppercase tracking-[0.14em] text-secondary-foreground hover:text-foreground transition-colors">
               {{ action.label }}
@@ -104,19 +88,19 @@ import { RouterModule } from '@angular/router';
     <!-- Mobile Menu -->
     @if (mobileOpen()) {
       <div class="md:hidden absolute top-[76px] left-4 right-4 z-50 glass rounded-2xl p-5 flex flex-col gap-3 animate-fade-in shadow-2xl">
-        @for (link of centerLinks; track link.label) {
+        @for (link of siteLinks; track link.label) {
           <a
             [routerLink]="link.route"
             (click)="mobileOpen.set(false)"
             class="text-sm font-medium py-2"
-            [class.text-primary]="link.active"
-            [class.text-secondary-foreground]="!link.active"
+            [class.text-primary]="isActive(link.route)"
+            [class.text-secondary-foreground]="!isActive(link.route)"
           >
             {{ link.label }}
           </a>
         }
         <div class="h-px bg-border my-2"></div>
-        @for (action of rightActions; track action.label) {
+        @for (action of siteActions; track action.label) {
           @if (action.style === 'primary') {
             <a
               [routerLink]="action.route"
@@ -140,6 +124,30 @@ import { RouterModule } from '@angular/router';
   `,
 })
 export class NavbarComponent {
+  constructor(private router: Router) {}
+
+  readonly siteLinks = [
+    { label: 'Discover', route: '/' },
+    { label: 'About', route: '/about' },
+    { label: 'Help', route: '/help' },
+  ];
+
+  readonly siteActions: {
+    label: string;
+    route: string;
+    style: 'text' | 'outline' | 'primary' | 'icon';
+  }[] = [
+    { label: 'Sign in', route: '/forgot-password', style: 'text' },
+    { label: 'Join free', route: '/gift-cards', style: 'primary' },
+  ];
+
+  isActive(route: string) {
+    const currentUrl = this.router.url.split('?')[0];
+    return route === '/' ? currentUrl === '/' : currentUrl.startsWith(route);
+  }
+
+  // Kept as inputs for compatibility with existing page templates. The site
+  // chrome intentionally uses the canonical links above on every route.
   @Input() navStyle: 'pill' | 'plain' = 'pill';
   @Input() centerLinks: { label: string; route: string; active?: boolean }[] = [
     { label: 'Discover', route: '/' },

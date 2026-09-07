@@ -46,7 +46,7 @@ interface PricingPlan {
             [class.border-primary]="plan.popular"
             [class.border-border]="!plan.popular"
             [class.shadow-2xl]="plan.popular"
-            [class.shadow-primary/10]="plan.popular"
+            [ngClass]="{ 'shadow-primary/10': plan.popular }"
           >
             <!-- Popular badge -->
             <div
@@ -103,10 +103,10 @@ interface PricingPlan {
               class="w-full py-3.5 rounded-xl font-semibold text-sm transition-colors"
               [class.bg-primary]="plan.popular"
               [class.text-primary-foreground]="plan.popular"
-              [class.hover:bg-primary/90]="plan.popular"
+              [ngClass]="{ 'hover:bg-primary/90': plan.popular }"
               [class.bg-secondary]="!plan.popular"
               [class.text-secondary-foreground]="!plan.popular"
-              [class.hover:bg-secondary/80]="!plan.popular"
+              [ngClass]="{ 'hover:bg-secondary/80': !plan.popular }"
             >
               {{ plan.cta }}
             </button>

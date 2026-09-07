@@ -60,9 +60,9 @@ import { FooterComponent } from '../../shared/footer/footer.component';
           <div class="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block"></div>
 
           @for (event of timeline; track event.year; let i = $index; let isEven = $even) {
-            <div class="relative flex flex-col md:flex-row items-center mb-16 last:mb-0" [class.md:flex-row-reverse]="!isEven">
+            <div class="relative flex flex-col md:flex-row items-center mb-16 last:mb-0" [ngClass]="{ 'md:flex-row-reverse': !isEven }">
               <!-- Content -->
-              <div class="md:w-5/12 text-center" [class.md:text-right]="isEven" [class.md:text-left]="!isEven">
+              <div class="md:w-5/12 text-center" [ngClass]="{ 'md:text-right': isEven, 'md:text-left': !isEven }">
                 <span class="text-lg font-bold" [class.text-foreground]="isEven" [class.text-primary]="!isEven">{{ event.year }}</span>
                 <h3 class="text-base font-semibold text-foreground mt-1">{{ event.title }}</h3>
                 <p class="text-sm text-muted-foreground mt-2 leading-relaxed">{{ event.description }}</p>

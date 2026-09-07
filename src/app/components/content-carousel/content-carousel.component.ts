@@ -77,7 +77,7 @@ interface ContentItem {
             [class.text-primary-foreground]="activeCategory === cat"
             [class.bg-secondary]="activeCategory !== cat"
             [class.text-secondary-foreground]="activeCategory !== cat"
-            [class.hover:bg-secondary/80]="activeCategory !== cat"
+            [ngClass]="{ 'hover:bg-secondary/80': activeCategory !== cat }"
             (click)="activeCategory = cat"
           >
             {{ cat }}
@@ -163,12 +163,12 @@ export class ContentCarouselComponent {
   categories = ['All', 'Live', 'Movies', 'Series', 'Sports', 'Kids'];
 
   contentItems: ContentItem[] = [
-    { title: 'After the Last Light', category: 'Series', badge: 'New', meta: '8 episodes', image: '/generated_images/shoftv-poster-desert.jpg' },
-    { title: 'Blue Note', category: 'Movies', badge: '4K', meta: '2h 04m', image: '/generated_images/shoftv-poster-jazz.jpg' },
-    { title: 'Neon Hours', category: 'Movies', badge: 'Top 10', meta: '1h 51m', image: '/generated_images/shoftv-poster-rain.jpg' },
-    { title: 'August, Again', category: 'Series', badge: 'New', meta: '6 episodes', image: '/generated_images/shoftv-poster-summer.jpg' },
-    { title: 'The Long Round', category: 'Sports', badge: 'Original', meta: '1h 47m', image: '/generated_images/shoftv-poster-fight.jpg' },
-    { title: 'Desert Lines', category: 'Movies', badge: 'HD', meta: '2h 12m', image: '/generated_images/shoftv-poster-desert.jpg' },
+    { title: 'After the Last Light', category: 'Series', badge: 'New', meta: '8 episodes', image: '/assets/img/shoftv-poster-desert.jpg' },
+    { title: 'Blue Note', category: 'Movies', badge: '4K', meta: '2h 04m', image: '/assets/img/shoftv-poster-jazz.jpg' },
+    { title: 'Neon Hours', category: 'Movies', badge: 'Top 10', meta: '1h 51m', image: '/assets/img/shoftv-poster-rain.jpg' },
+    { title: 'August, Again', category: 'Series', badge: 'New', meta: '6 episodes', image: '/assets/img/shoftv-poster-summer.jpg' },
+    { title: 'The Long Round', category: 'Sports', badge: 'Original', meta: '1h 47m', image: '/assets/img/shoftv-poster-fight.jpg' },
+    { title: 'Desert Lines', category: 'Movies', badge: 'HD', meta: '2h 12m', image: '/assets/img/shoftv-poster-desert.jpg' },
   ];
 
   get filteredContent(): ContentItem[] {
