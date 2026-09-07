@@ -1,0 +1,11 @@
+.git
+.gitignore
+README.md
+node_modules
+npm-debug.log
+.env.example
+.replit
+replit.md
+docs/
+public/placeholder*.svg
+public/placeholder*.jpg

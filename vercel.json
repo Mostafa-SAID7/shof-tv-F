@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/shoftv-landing",
+  "env": {
+    "npm_config_registry": "https://registry.npmjs.org/"
+  },
+  "installCommand": "npm install --legacy-peer-deps"
+}
