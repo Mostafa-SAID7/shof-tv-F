@@ -26,7 +26,7 @@ import { RouterModule } from '@angular/router';
               class="px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] rounded-full transition-colors"
               [class.text-primary]="link.active"
               [class.text-secondary-foreground]="!link.active"
-              [class.hover:text-foreground]="!link.active"
+              [ngClass]="{ 'hover:text-foreground': !link.active }"
             >
               {{ link.label }}
             </a>
@@ -40,7 +40,7 @@ import { RouterModule } from '@angular/router';
               class="text-xs font-semibold uppercase tracking-[0.14em] transition-colors"
               [class.text-primary]="link.active"
               [class.text-secondary-foreground]="!link.active"
-              [class.hover:text-foreground]="!link.active"
+              [ngClass]="{ 'hover:text-foreground': !link.active }"
             >
               {{ link.label }}
             </a>

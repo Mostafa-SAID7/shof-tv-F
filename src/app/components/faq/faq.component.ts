@@ -52,7 +52,7 @@ interface FaqItem {
           <div
             *ngFor="let item of faqItems; let i = index"
             class="bg-card border border-border rounded-xl overflow-hidden transition-colors"
-            [class.border-primary/30]="item.isOpen"
+            [ngClass]="{ 'border-primary/30': item.isOpen }"
           >
             <button
               class="w-full flex items-center justify-between p-5 lg:p-6 text-left"

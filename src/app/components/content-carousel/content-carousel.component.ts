@@ -77,7 +77,7 @@ interface ContentItem {
             [class.text-primary-foreground]="activeCategory === cat"
             [class.bg-secondary]="activeCategory !== cat"
             [class.text-secondary-foreground]="activeCategory !== cat"
-            [class.hover:bg-secondary/80]="activeCategory !== cat"
+            [ngClass]="{ 'hover:bg-secondary/80': activeCategory !== cat }"
             (click)="activeCategory = cat"
           >
             {{ cat }}

@@ -1,0 +1,1 @@
+- [Replit npm firewall compatibility](package-firewall.md) — use narrow overrides for blocked transitive packages before broader dependency changes.
