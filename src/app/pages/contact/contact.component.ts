@@ -125,7 +125,7 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
                   <select
                     [(ngModel)]="form.subject"
                     name="subject"
-                    class="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors appearance-none"
+                    class="select-control w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none transition-colors"
                   >
                     <option value="subscription">Subscription Inquiry</option>
                     <option value="technical">Technical Support</option>

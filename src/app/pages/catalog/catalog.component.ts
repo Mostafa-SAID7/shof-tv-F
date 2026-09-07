@@ -54,7 +54,7 @@ import { ContentCategory } from '../../platform/platform.models';
             </div>
             <div class="mt-8 flex items-end justify-between">
               <div><p class="eyebrow">{{ results().length }} titles</p><h2 class="mt-2 text-2xl font-bold">{{ selectedCategory() === 'All' ? 'Everything worth watching' : selectedCategory() }}</h2></div>
-              <select [(ngModel)]="sort" class="rounded-full border border-white/10 bg-card px-4 py-2 text-xs text-secondary-foreground outline-none"><option value="featured">Featured</option><option value="rating">Top rated</option><option value="newest">Newest</option></select>
+              <select [(ngModel)]="sort" aria-label="Sort titles" class="select-control rounded-full border border-white/10 px-4 py-2 text-xs text-secondary-foreground outline-none"><option value="featured">Featured</option><option value="rating">Top rated</option><option value="newest">Newest</option></select>
             </div>
             <div *ngIf="results().length; else empty" class="mt-7 grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               <app-content-card *ngFor="let title of results()" [title]="title" />
