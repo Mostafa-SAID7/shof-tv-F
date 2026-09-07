@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 
       <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-16 sm:px-12">
-          <img src="/assets/img/home/cinema.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" />
+          <img src="/home/cinema.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" />
           <div class="absolute inset-0 bg-gradient-to-br from-accent/30 via-background/80 to-background"></div>
           <div class="relative">
         <h2

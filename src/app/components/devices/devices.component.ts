@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
               <!-- Large TV/Desktop -->
               <div class="bg-card border border-border rounded-2xl overflow-hidden shadow-2xl shadow-primary/5">
                 <div class="aspect-video relative overflow-hidden">
-                   <img src="/assets/img/home/cinema.jpg" alt="ShofTV playing on a cinema screen" class="absolute inset-0 h-full w-full object-cover" />
+                   <img src="/home/cinema.jpg" alt="ShofTV playing on a cinema screen" class="absolute inset-0 h-full w-full object-cover" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20"></div>
                   <div class="absolute inset-0 flex items-center justify-center">
                     <div class="text-center">
@@ -49,7 +49,7 @@ import { CommonModule } from '@angular/common';
                 <div
                   class="aspect-[3/4] bg-secondary relative overflow-hidden"
                 >
-                   <img src="/assets/img/home/posters/jazz.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
+                   <img src="/home/posters/jazz.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
                   <div class="absolute inset-0 flex items-center justify-center">
                     <svg
                       class="w-6 h-6 text-accent"
@@ -75,7 +75,7 @@ import { CommonModule } from '@angular/common';
                 <div
                   class="aspect-[9/16] bg-secondary relative overflow-hidden"
                 >
-                   <img src="/assets/img/home/posters/rain.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
+                   <img src="/home/posters/rain.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
                   <div class="absolute inset-0 flex items-center justify-center">
                     <svg
                       class="w-5 h-5 text-primary"

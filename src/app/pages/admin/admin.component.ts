@@ -25,9 +25,9 @@ export class AdminComponent {
   readonly nav = [{ label: 'Overview', active: true }, { label: 'Content library', count: 128 }, { label: 'Publishing queue', count: 4 }, { label: 'Viewers', count: 12400 }, { label: 'Reports', count: 3 }, { label: 'Analytics' }];
   readonly metrics = [{ label: 'Monthly viewers', value: '124.8K', change: '+18.4%' }, { label: 'Hours watched', value: '86.2K', change: '+12.7%' }, { label: 'Premium conversion', value: '8.6%', change: '+2.1%' }, { label: 'Open reports', value: '3', change: '-25.0%' }];
   readonly queue = [
-    { name: 'After the Last Light', type: 'Series · 8 episodes', updated: '2h ago', status: 'Published', image: '/assets/img/home/posters/desert.jpg' },
-    { name: 'The Long Round', type: 'Documentary · 1h 47m', updated: '5h ago', status: 'Review', image: '/assets/img/home/posters/fight.jpg' },
-    { name: 'Little Lanterns', type: 'Kids · 12 episodes', updated: 'Yesterday', status: 'Published', image: '/assets/img/home/posters/summer.jpg' },
+    { name: 'After the Last Light', type: 'Series · 8 episodes', updated: '2h ago', status: 'Published', image: '/home/posters/desert.jpg' },
+    { name: 'The Long Round', type: 'Documentary · 1h 47m', updated: '5h ago', status: 'Review', image: '/home/posters/fight.jpg' },
+    { name: 'Little Lanterns', type: 'Kids · 12 episodes', updated: 'Yesterday', status: 'Published', image: '/home/posters/summer.jpg' },
   ];
   readonly activity = [{ label: 'Mon', value: 64 }, { label: 'Tue', value: 78 }, { label: 'Wed', value: 52 }, { label: 'Thu', value: 87 }, { label: 'Fri', value: 70 }, { label: 'Sat', value: 96 }, { label: 'Sun', value: 82 }];
   readonly reports = [{ title: 'The Long Round', time: '34m', reason: 'Viewer reported inaccurate content rating.' }, { title: 'Neon Hours', time: '2h', reason: 'A copyright claim needs a content review.' }, { title: 'Blue Note', time: '1d', reason: 'Subtitle timing was flagged by 2 viewers.' }];
