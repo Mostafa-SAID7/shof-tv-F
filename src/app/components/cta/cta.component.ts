@@ -11,7 +11,11 @@ import { CommonModule } from '@angular/common';
         class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(229,9,20,0.12)_0%,_transparent_60%)]"
       ></div>
 
-      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-16 sm:px-12">
+          <img src="/generated_images/shoftv-cinema.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" />
+          <div class="absolute inset-0 bg-gradient-to-br from-accent/30 via-background/80 to-background"></div>
+          <div class="relative">
         <h2
           class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground tracking-tight text-balance"
         >
@@ -40,9 +44,11 @@ import { CommonModule } from '@angular/common';
           </button>
         </div>
 
-        <p class="mt-4 text-xs text-muted-foreground">
+          <p class="mt-4 text-xs text-muted-foreground">
           Free for 7 days, then from $4.99/month. Cancel anytime.
         </p>
+          </div>
+        </div>
       </div>
     </section>
   `,

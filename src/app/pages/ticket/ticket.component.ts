@@ -32,13 +32,16 @@ import { FooterComponent } from '../../shared/footer/footer.component';
           <div class="grid grid-cols-1 md:grid-cols-5">
             <!-- Left: Movie Info -->
             <div class="md:col-span-3 relative">
-              <!-- Movie Poster Gradient -->
-              <div class="bg-gradient-to-br from-orange-900/40 via-primary/10 to-secondary p-8 min-h-[280px] flex flex-col justify-end text-left">
+              <div class="relative overflow-hidden p-8 min-h-[280px] flex flex-col justify-end text-left">
+                <img src="/generated_images/shoftv-poster-desert.jpg" alt="Dune: Part Two key art" class="absolute inset-0 h-full w-full object-cover opacity-75" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10"></div>
+                <div class="relative">
                 <span class="inline-block bg-foreground/10 backdrop-blur text-foreground text-xs font-semibold px-3 py-1 rounded border border-foreground/20 mb-3 w-fit">
                   ADMIT 1
                 </span>
                 <h2 class="text-2xl font-bold text-foreground">{{ ticket.movie }}</h2>
                 <p class="text-sm text-primary mt-1">{{ ticket.format }}</p>
+                </div>
               </div>
 
               <!-- Details Grid -->

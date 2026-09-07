@@ -7,23 +7,23 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <footer class="border-t border-border">
+    <footer class="border-t border-white/10 bg-[#09090b]">
       <!-- Main Footer Content -->
       @if (variant === 'full') {
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20">
           <!-- Logo + CTA -->
-          <div class="flex flex-col items-center text-center mb-12">
-            <div class="flex items-center gap-1 text-2xl font-black tracking-tight mb-4">
+          <div class="flex flex-col items-center text-center mb-14">
+            <div class="flex items-center gap-2 text-2xl font-bold tracking-tight mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M2 4l3 1.5L12 2l7 3.5L22 4v2l-3 1.5v9L12 20l-7-3.5v-9L2 6V4zm5 5v7l5 2.5L17 16V9l-5-2.5L7 9z"/>
               </svg>
-              <span class="text-foreground">ShofTV</span>
+              <span class="text-foreground">shof<span class="text-primary">tv</span></span>
             </div>
             <p class="text-muted-foreground text-sm max-w-md mb-6">
-              Your ultimate destination for curated cinema. Join us and change the way you watch movies forever.
+              Curated stories, live moments, and a better way to find what to watch next.
             </p>
             <a href="#" class="inline-block bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-full hover:brightness-110 transition-all">
-              Join the Revolution
+              Start watching free
             </a>
             <!-- Social Icons -->
             <div class="flex items-center gap-4 mt-6">
@@ -49,13 +49,13 @@ import { RouterModule } from '@angular/router';
 
       <!-- Bottom Bar -->
       <div class="border-t border-border px-6 lg:px-12 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-        <div class="flex items-center gap-2 text-xs text-muted-foreground">
+          <div class="flex items-center gap-2 text-xs text-muted-foreground">
           @if (variant === 'full') {
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
               <path d="M2 4l3 1.5L12 2l7 3.5L22 4v2l-3 1.5v9L12 20l-7-3.5v-9L2 6V4zm5 5v7l5 2.5L17 16V9l-5-2.5L7 9z"/>
             </svg>
           }
-          <span>&copy; {{ year }} ShofTV. All rights reserved.</span>
+          <span>&copy; {{ year }} shoftv. All stories reserved.</span>
         </div>
         <div class="flex items-center gap-6 text-xs">
           @for (link of bottomLinks; track link.label) {

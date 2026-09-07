@@ -6,14 +6,19 @@
   />
 
   <!-- Hero Banner -->
-  <section class="mx-6 lg:mx-12 mt-6 rounded-xl bg-gradient-to-r from-primary/10 via-secondary to-primary/5 border border-border p-12 md:p-16 text-center">
-    <h1 class="text-3xl md:text-5xl font-bold text-foreground mb-3">
+  <section class="relative isolate mx-6 mt-6 overflow-hidden rounded-[2rem] border border-white/10 p-12 text-center lg:mx-12 md:p-16">
+    <img src="/generated_images/shoftv-cinema.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-35" />
+    <div class="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-accent/25"></div>
+    <div class="relative">
+    <p class="eyebrow mb-4">Give a great night away</p>
+    <h1 class="text-3xl md:text-5xl font-bold tracking-[-0.04em] text-foreground mb-3">
       Give the Gift of <span class="text-primary">Movies</span>
     </h1>
     <p class="text-muted-foreground max-w-lg mx-auto leading-relaxed">
       ShofTV Gift Cards for the ultimate cinematic subscription experience.
       Choose digital delivery for instant access or physical for a premium unboxing.
     </p>
+    </div>
   </section>
 
   <div class="max-w-3xl mx-auto px-6 py-12">
@@ -73,7 +78,7 @@
     </div>
 
     <!-- Personalize -->
-    <div class="bg-card/50 border border-border rounded-xl p-8 mb-10">
+    <div class="bg-card border border-white/10 rounded-2xl p-8 mb-10 shadow-xl shadow-black/10">
       <h2 class="text-lg font-semibold text-foreground mb-6">Personalize Your Gift</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
         <div>
@@ -115,7 +120,7 @@
       <button
         class="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-10 py-3.5 rounded-lg hover:brightness-110 transition-all"
       >
-        🛒 Purchase Gift Card
+        Purchase gift card
       </button>
       <p class="text-xs text-muted-foreground mt-4">
         By purchasing, you agree to the ShofTV Gift Card Terms and Conditions. Gift cards are non-refundable.

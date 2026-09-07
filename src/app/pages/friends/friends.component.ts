@@ -43,12 +43,14 @@ export class FriendsComponent {
     likes?: number;
     comments?: number;
     replyable?: boolean;
+    image: string;
   }[] = [
     {
       id: 1,
       user: 'Marcus Chen',
       action: 'watched',
       movie: 'Oppenheimer',
+      image: '/generated_images/shoftv-poster-fight.jpg',
       time: '2h ago',
       rating: 5,
       review: 'Absolutely mind-blowing cinematography. A masterpiece from Nolan.',
@@ -60,6 +62,7 @@ export class FriendsComponent {
       user: 'Sarah Jenkins',
       action: 'added',
       movie: 'The Matrix',
+      image: '/generated_images/shoftv-poster-rain.jpg',
       target: 'Watchlist',
       time: '5h ago',
       description: 'Planning to rewatch this classic over the weekend!',
@@ -69,6 +72,7 @@ export class FriendsComponent {
       user: 'David Kim',
       action: 'watched',
       movie: 'Blade Runner 2049',
+      image: '/generated_images/shoftv-poster-desert.jpg',
       time: '1d ago',
       rating: 4,
       review: 'Visually stunning, but pacing felt a bit slow in the middle act.',
