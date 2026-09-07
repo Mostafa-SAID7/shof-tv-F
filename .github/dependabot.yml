@@ -1,82 +1,11 @@
 version: 2
 updates:
-  # npm dependencies
+  # npm dependencies - STRICT MODE: patch updates only
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       day: "monday"
-      time: "03:00"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "Mostafa-SAID7"
-    assignees:
-      - "Mostafa-SAID7"
-    labels:
-      - "dependencies"
-      - "type: maintenance"
-    commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
-    pull-request-branch-name:
-      separator: "/"
-    allow:
-      - dependency-type: "production"
-      - dependency-type: "development"
-    ignore:
-      # Angular framework - keep 19.x (major upgrades blocked)
-      - dependency-name: "@angular/animations"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/common"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/compiler"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/core"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/forms"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/platform-browser"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/platform-browser-dynamic"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/router"
-        update-types: ["version-update:semver-major"]
-      # Angular DevKit - keep 19.x
-      - dependency-name: "@angular-devkit/build-angular"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/cli"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular/compiler-cli"
-        update-types: ["version-update:semver-major"]
-      # Angular ESLint - keep 19.x
-      - dependency-name: "@angular-eslint/builder"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular-eslint/eslint-plugin"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular-eslint/eslint-plugin-template"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular-eslint/schematics"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular-eslint/template-parser"
-        update-types: ["version-update:semver-major"]
-      # TypeScript - keep 5.5.x
-      - dependency-name: "typescript"
-        update-types: ["version-update:semver-major"]
-      # Testing - keep current versions
-      - dependency-name: "jasmine-core"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "karma"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "karma-jasmine"
-        update-types: ["version-update:semver-major"]
-
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "03:30"
     open-pull-requests-limit: 3
     reviewers:
       - "Mostafa-SAID7"
@@ -84,14 +13,21 @@ updates:
       - "dependencies"
       - "type: maintenance"
     commit-message:
-      prefix: "ci(actions)"
+      prefix: "chore(deps)"
     ignore:
-      # Keep stable action versions - review major updates manually
-      - dependency-name: "actions/checkout"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "actions/setup-node"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "actions/github-script"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "actions/upload-artifact"
-        update-types: ["version-update:semver-major"]
+      # Block ALL minor and major updates except security patches
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
+
+  # GitHub Actions - STRICT MODE: patch updates only
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 2
+    labels:
+      - "dependencies"
+      - "ci"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
