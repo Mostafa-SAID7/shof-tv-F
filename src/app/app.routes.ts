@@ -8,6 +8,13 @@ import { GiftCardsComponent } from './pages/gift-cards/gift-cards.component';
 import { TicketComponent } from './pages/ticket/ticket.component';
 import { ConcessionsComponent } from './pages/concessions/concessions.component';
 import { FriendsComponent } from './pages/friends/friends.component';
+import { CatalogComponent } from './pages/catalog/catalog.component';
+import { TitleDetailComponent } from './pages/title-detail/title-detail.component';
+import { WatchlistComponent } from './pages/watchlist/watchlist.component';
+import { WatchComponent } from './pages/watch/watch.component';
+import { PlansComponent } from './pages/plans/plans.component';
+import { AccountComponent } from './pages/account/account.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,5 +26,12 @@ export const routes: Routes = [
   { path: 'ticket', component: TicketComponent },
   { path: 'concessions', component: ConcessionsComponent },
   { path: 'friends', component: FriendsComponent },
+  { path: 'browse', component: CatalogComponent },
+  { path: 'title/:id', component: TitleDetailComponent },
+  { path: 'watch/:id', component: WatchComponent },
+  { path: 'watchlist', component: WatchlistComponent },
+  { path: 'plans', component: PlansComponent },
+  { path: 'account', component: AccountComponent },
+  { path: 'studio', component: AdminComponent },
   { path: '**', redirectTo: '' }
 ];
