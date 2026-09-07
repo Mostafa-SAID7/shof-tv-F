@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
           </p>
 
             <form (ngSubmit)="onSubmit()" #resetForm="ngForm" class="text-left">
-            <label class="block text-sm font-semibold text-foreground mb-2">Email Address</label>
+            <label for="email-reset" class="block text-sm font-semibold text-foreground mb-2">Email Address</label>
             <div class="flex items-center bg-secondary border border-border rounded-lg overflow-hidden mb-6">
               <div class="pl-4 text-muted-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -43,6 +43,7 @@ import { RouterModule } from '@angular/router';
                 </svg>
               </div>
               <input
+                id="email-reset"
                 type="email"
                 [(ngModel)]="email"
                 name="email"

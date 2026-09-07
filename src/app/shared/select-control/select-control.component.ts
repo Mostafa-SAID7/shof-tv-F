@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -85,7 +84,7 @@ let nextSelectId = 0;
     </div>
   `,
 })
-export class SelectControlComponent implements AfterViewInit {
+export class SelectControlComponent {
   @Input() options: readonly SelectOption[] = [];
   @Input() value = '';
   @Input() ariaLabel = 'Select an option';
@@ -99,8 +98,6 @@ export class SelectControlComponent implements AfterViewInit {
   get selectedLabel(): string {
     return this.options.find((option) => option.value === this.value)?.label ?? this.options[0]?.label ?? 'Select an option';
   }
-
-  ngAfterViewInit(): void {}
 
   toggle(): void {
     this.open = !this.open;

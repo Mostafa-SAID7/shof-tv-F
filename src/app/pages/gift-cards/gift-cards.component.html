@@ -78,8 +78,9 @@
       <h2 class="text-lg font-semibold text-foreground mb-6">Personalize Your Gift</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
         <div>
-          <label class="block text-xs font-semibold text-muted-foreground mb-2">Recipient's Name</label>
+          <label for="recipient-name" class="block text-xs font-semibold text-muted-foreground mb-2">Recipient's Name</label>
           <input
+            id="recipient-name"
             type="text"
             [(ngModel)]="recipientName"
             placeholder="John Doe"
@@ -87,8 +88,9 @@
           />
         </div>
         <div>
-          <label class="block text-xs font-semibold text-muted-foreground mb-2">Recipient's Email</label>
+          <label for="recipient-email" class="block text-xs font-semibold text-muted-foreground mb-2">Recipient's Email</label>
           <input
+            id="recipient-email"
             type="email"
             [(ngModel)]="recipientEmail"
             placeholder="john@example.com"
@@ -97,8 +99,9 @@
         </div>
       </div>
       <div>
-        <label class="block text-xs font-semibold text-muted-foreground mb-2">Personal Message (Optional)</label>
+        <label for="personal-message" class="block text-xs font-semibold text-muted-foreground mb-2">Personal Message (Optional)</label>
         <textarea
+          id="personal-message"
           [(ngModel)]="personalMessage"
           placeholder="Hope you enjoy the movies!"
           rows="3"

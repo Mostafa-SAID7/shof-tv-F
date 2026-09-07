@@ -86,8 +86,9 @@ import { SelectControlComponent, SelectOption } from '../../shared/select-contro
               <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="flex flex-col gap-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">First Name</label>
+                    <label for="firstName" class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">First Name</label>
                     <input
+                      id="firstName"
                       type="text"
                       [(ngModel)]="form.firstName"
                       name="firstName"
@@ -97,8 +98,9 @@ import { SelectControlComponent, SelectOption } from '../../shared/select-contro
                     />
                   </div>
                   <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Last Name</label>
+                    <label for="lastName" class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Last Name</label>
                     <input
+                      id="lastName"
                       type="text"
                       [(ngModel)]="form.lastName"
                       name="lastName"
@@ -110,8 +112,9 @@ import { SelectControlComponent, SelectOption } from '../../shared/select-contro
                 </div>
 
                 <div>
-                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Email Address</label>
+                  <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Email Address</label>
                   <input
+                    id="email"
                     type="email"
                     [(ngModel)]="form.email"
                     name="email"
@@ -122,8 +125,9 @@ import { SelectControlComponent, SelectOption } from '../../shared/select-contro
                 </div>
 
                 <div>
-                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Subject</label>
+                  <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Subject</label>
                   <app-select-control
+                    id="subject"
                     [options]="subjectOptions"
                     [value]="form.subject"
                     ariaLabel="Contact subject"
@@ -132,8 +136,9 @@ import { SelectControlComponent, SelectOption } from '../../shared/select-contro
                 </div>
 
                 <div>
-                  <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Message</label>
+                  <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Message</label>
                   <textarea
+                    id="message"
                     [(ngModel)]="form.message"
                     name="message"
                     required

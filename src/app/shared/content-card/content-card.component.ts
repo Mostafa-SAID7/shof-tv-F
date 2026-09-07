@@ -29,5 +29,5 @@ import { PlatformTitle } from '../../platform/platform.models';
 })
 export class ContentCardComponent {
   @Input({ required: true }) title!: PlatformTitle;
-  @Output() play = new EventEmitter<PlatformTitle>();
+  @Output('contentPlay') play = new EventEmitter<PlatformTitle>();
 }
