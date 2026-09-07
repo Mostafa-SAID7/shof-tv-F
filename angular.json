@@ -48,7 +48,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "allowedHosts": [".replit.dev"]
+            "buildTarget": "shoftv-landing:build",
+            "port": 4200,
+            "host": "0.0.0.0",
+            "allowedHosts": ["localhost", "127.0.0.1", ".replit.dev"]
           },
           "configurations": {
             "production": {

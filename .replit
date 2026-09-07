@@ -6,20 +6,14 @@ channel = "stable-25_05"
 [agent]
 expertMode = true
 
+[build]
+files = ["package.json", "package-lock.json", "angular.json", "tsconfig.json", "src"]
+
 [workflows]
-runButton = "Project"
+runButton = "Start Development Server"
 
 [[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Start application"
-
-[[workflows.workflow]]
-name = "Start application"
+name = "Start Development Server"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -27,9 +21,10 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm start -- --host 0.0.0.0 --port 5000"
-waitForPort = 5000
+args = "npm install --legacy-peer-deps && npm start -- --host 0.0.0.0 --port 4200 --poll"
+waitForPort = 4200
 
 [[ports]]
-localPort = 5000
+localPort = 4200
 externalPort = 80
+
