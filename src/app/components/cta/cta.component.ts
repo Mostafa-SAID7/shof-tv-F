@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cta',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   template: `
-    <section class="py-20 lg:py-28 relative overflow-hidden">
+    <section id="signup" class="py-20 lg:py-28 relative overflow-hidden">
       <div
         class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(229,9,20,0.12)_0%,_transparent_60%)]"
       ></div>
@@ -29,20 +30,30 @@ import { CommonModule } from '@angular/common';
         </p>
 
         <!-- Email signup -->
-        <div
+        <form
+          (ngSubmit)="onSubmit()"
           class="mt-8 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto"
         >
           <input
             type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
             placeholder="Enter your email"
             class="w-full bg-card border border-border rounded-lg px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
           <button
+            type="submit"
             class="w-full sm:w-auto shrink-0 bg-primary text-primary-foreground font-semibold px-6 py-3.5 rounded-lg text-sm hover:bg-primary/90 transition-colors whitespace-nowrap"
           >
             Get Started
           </button>
-        </div>
+        </form>
+        @if (submitted) {
+          <p class="mt-4 text-sm text-primary" role="status">
+            Thanks — we’ll use {{ email }} to start your free trial.
+          </p>
+        }
 
           <p class="mt-4 text-xs text-muted-foreground">
           Free for 7 days, then from $4.99/month. Cancel anytime.
@@ -53,4 +64,12 @@ import { CommonModule } from '@angular/common';
     </section>
   `,
 })
-export class CtaComponent {}
+export class CtaComponent {
+  email = '';
+  submitted = false;
+
+  onSubmit() {
+    if (!this.email.trim()) return;
+    this.submitted = true;
+  }
+}

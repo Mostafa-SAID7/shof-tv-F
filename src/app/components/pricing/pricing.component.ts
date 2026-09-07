@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 interface PricingPlan {
   name: string;
@@ -14,7 +15,7 @@ interface PricingPlan {
 @Component({
   selector: 'app-pricing',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <section id="pricing" class="py-20 lg:py-28 relative">
       <div
@@ -99,7 +100,10 @@ interface PricingPlan {
               </li>
             </ul>
 
-            <button
+            <a
+              routerLink="/"
+              fragment="signup"
+              (click)="selectPlan(plan.name)"
               class="w-full py-3.5 rounded-xl font-semibold text-sm transition-colors"
               [class.bg-primary]="plan.popular"
               [class.text-primary-foreground]="plan.popular"
@@ -109,14 +113,25 @@ interface PricingPlan {
               [ngClass]="{ 'hover:bg-secondary/80': !plan.popular }"
             >
               {{ plan.cta }}
-            </button>
+            </a>
           </div>
         </div>
+        @if (selectedPlan) {
+          <p class="mx-auto mt-8 max-w-xl rounded-xl border border-primary/30 bg-primary/10 px-5 py-3 text-center text-sm text-primary" role="status">
+            {{ selectedPlan }} selected. Enter your email below to start your free trial.
+          </p>
+        }
       </div>
     </section>
   `,
 })
 export class PricingComponent {
+  selectedPlan = '';
+
+  selectPlan(planName: string) {
+    this.selectedPlan = planName;
+  }
+
   plans: PricingPlan[] = [
     {
       name: 'Basic',

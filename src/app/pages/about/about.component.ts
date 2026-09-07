@@ -9,11 +9,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
   imports: [CommonModule, NavbarComponent, FooterComponent],
   template: `
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar
-        navStyle="plain"
-        [centerLinks]="navLinks"
-        [rightActions]="navActions"
-      />
+      <app-navbar />
 
       <!-- Hero -->
       <section class="relative text-center py-24 lg:py-36 px-6 overflow-hidden">
@@ -107,25 +103,11 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </section>
 
-      <app-footer
-        variant="full"
-        [bottomLinks]="footerLinks"
-      />
+      <app-footer />
     </div>
   `,
 })
 export class AboutComponent {
-  navLinks = [
-    { label: 'Home', route: '/' },
-    { label: 'About Us', route: '/about', active: true },
-    { label: 'Pricing', route: '/pricing' },
-    { label: 'Contact', route: '/contact' },
-  ];
-
-  navActions = [
-    { label: 'Sign In', route: '/login', style: 'outline' as const },
-  ];
-
   timeline = [
     {
       year: '2018',
@@ -156,8 +138,4 @@ export class AboutComponent {
     { name: 'Maya Patel', role: 'Lead Designer' },
   ];
 
-  footerLinks = [
-    { label: 'Privacy Policy', route: '/privacy' },
-    { label: 'Terms of Service', route: '/terms' },
-  ];
 }

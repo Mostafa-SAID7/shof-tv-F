@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -41,11 +41,6 @@ interface ChatMessage {
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <button class="w-7 h-7 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors" aria-label="Help">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </button>
             <button
               (click)="isOpen.set(false)"
               class="w-7 h-7 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
@@ -96,11 +91,6 @@ interface ChatMessage {
         <!-- Input -->
         <div class="px-4 py-3 border-t border-border bg-card">
           <div class="flex items-center gap-2 bg-secondary border border-border rounded-full px-3">
-            <button class="text-muted-foreground hover:text-foreground transition-colors shrink-0" aria-label="Attach file">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
-              </svg>
-            </button>
             <input
               type="text"
               [(ngModel)]="newMessage"
@@ -145,6 +135,11 @@ export class LiveChatComponent {
       time: '2:32 PM',
     },
   ];
+
+  @HostListener('window:shof:open-chat')
+  openFromHelp() {
+    this.isOpen.set(true);
+  }
 
   sendMessage() {
     if (!this.newMessage.trim()) return;

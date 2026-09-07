@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
@@ -36,13 +36,14 @@ import { Router, RouterModule } from '@angular/router';
       <div class="hidden md:flex items-center gap-4">
         @for (action of siteActions; track action.label) {
           @if (action.style === 'text') {
-            <a [routerLink]="action.route" class="text-xs font-semibold uppercase tracking-[0.14em] text-secondary-foreground hover:text-foreground transition-colors">
+            <a [routerLink]="action.route" [fragment]="action.fragment" class="text-xs font-semibold uppercase tracking-[0.14em] text-secondary-foreground hover:text-foreground transition-colors">
               {{ action.label }}
             </a>
           }
           @if (action.style === 'outline') {
             <a
               [routerLink]="action.route"
+              [fragment]="action.fragment"
               class="text-sm font-medium border border-foreground/20 text-foreground px-5 py-2 rounded-full hover:bg-foreground/5 transition-all"
             >
               {{ action.label }}
@@ -51,6 +52,7 @@ import { Router, RouterModule } from '@angular/router';
           @if (action.style === 'primary') {
             <a
               [routerLink]="action.route"
+              [fragment]="action.fragment"
               class="text-xs font-bold uppercase tracking-[0.14em] bg-primary text-primary-foreground px-5 py-3 rounded-full hover:brightness-110 transition-all shadow-lg shadow-primary/10"
             >
               {{ action.label }}
@@ -104,6 +106,7 @@ import { Router, RouterModule } from '@angular/router';
           @if (action.style === 'primary') {
             <a
               [routerLink]="action.route"
+              [fragment]="action.fragment"
               (click)="mobileOpen.set(false)"
               class="text-sm font-semibold bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-center hover:brightness-110 transition-all"
             >
@@ -112,6 +115,7 @@ import { Router, RouterModule } from '@angular/router';
           } @else {
             <a
               [routerLink]="action.route"
+              [fragment]="action.fragment"
               (click)="mobileOpen.set(false)"
               class="text-sm font-medium text-secondary-foreground py-2"
             >
@@ -136,28 +140,16 @@ export class NavbarComponent {
     label: string;
     route: string;
     style: 'text' | 'outline' | 'primary' | 'icon';
+    fragment?: string;
   }[] = [
-    { label: 'Sign in', route: '/forgot-password', style: 'text' },
-    { label: 'Join free', route: '/gift-cards', style: 'primary' },
+    { label: 'Account help', route: '/forgot-password', style: 'text' },
+    { label: 'Start free', route: '/', fragment: 'pricing', style: 'primary' },
   ];
 
   isActive(route: string) {
     const currentUrl = this.router.url.split('?')[0];
     return route === '/' ? currentUrl === '/' : currentUrl.startsWith(route);
   }
-
-  // Kept as inputs for compatibility with existing page templates. The site
-  // chrome intentionally uses the canonical links above on every route.
-  @Input() navStyle: 'pill' | 'plain' = 'pill';
-  @Input() centerLinks: { label: string; route: string; active?: boolean }[] = [
-    { label: 'Discover', route: '/' },
-    { label: 'About', route: '/about' },
-    { label: 'Help', route: '/help' },
-  ];
-  @Input() rightActions: { label: string; route: string; style: 'text' | 'outline' | 'primary' | 'icon' }[] = [
-    { label: 'Sign in', route: '/forgot-password', style: 'text' },
-    { label: 'Join free', route: '/gift-cards', style: 'primary' },
-  ];
 
   mobileOpen = signal(false);
 }
