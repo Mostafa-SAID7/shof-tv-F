@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PageShellComponent } from '../../core/layout/page-shell.component';
 import { HeroComponent } from '../../components/hero/hero.component';
-import { ContentCarouselComponent } from '../../components/content-carousel/content-carousel.component';
-import { FeaturesComponent } from '../../components/features/features.component';
 import { DevicesComponent } from '../../components/devices/devices.component';
-import { PricingComponent } from '../../components/pricing/pricing.component';
 import { CtaComponent } from '../../components/cta/cta.component';
-import { FaqComponent } from '../../components/faq/faq.component';
 
 @Component({
   selector: 'app-home',
@@ -18,12 +14,8 @@ import { FaqComponent } from '../../components/faq/faq.component';
     RouterModule,
     PageShellComponent,
     HeroComponent,
-    ContentCarouselComponent,
-    FeaturesComponent,
     DevicesComponent,
-    PricingComponent,
     CtaComponent,
-    FaqComponent,
   ],
   template: `
     <app-page-shell>
@@ -44,11 +36,7 @@ import { FaqComponent } from '../../components/faq/faq.component';
         </div>
       </section>
 
-      <app-content-carousel />
-      <app-features />
       <app-devices />
-      <app-pricing />
-      <app-faq />
       <app-cta />
       <div *ngIf="showCookieBanner" class="fixed bottom-4 left-4 right-4 z-50 mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 bg-[#1a181e]/95 p-4 shadow-2xl backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:p-5">
         <p class="max-w-xl text-xs leading-relaxed text-secondary-foreground">We use cookies to make shoftv feel smoother. By continuing, you agree to our <a routerLink="/help" class="text-primary hover:underline">privacy policy</a>.</p>
