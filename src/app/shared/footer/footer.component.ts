@@ -30,7 +30,7 @@ import { SiteLink } from '../../core/models/navigation.models';
         <div class="flex items-center gap-2 text-xs text-muted-foreground">
           <span>&copy; {{ year }} shoftv. All stories reserved.</span>
         </div>
-        <nav class="flex items-center gap-6 text-xs" aria-label="Footer navigation">
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs" aria-label="Footer navigation">
           @for (link of siteFooterLinks; track link.label) {
             <a [routerLink]="link.route" class="text-muted-foreground hover:text-primary transition-colors">
               {{ link.label }}

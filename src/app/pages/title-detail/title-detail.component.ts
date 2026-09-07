@@ -17,23 +17,23 @@ import { PlatformStore } from '../../platform/platform.store';
           <div class="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/10"></div>
           <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30"></div>
           <div class="relative mx-auto flex min-h-[500px] max-w-7xl items-end px-5 pb-16 lg:px-10">
-            <div class="max-w-2xl">
+             <div class="min-w-0 max-w-2xl">
               <div class="flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-wider text-primary"><span>{{ item.kind }}</span><span class="text-white/30">•</span><span>{{ item.year }}</span><span class="text-white/30">•</span><span>{{ item.maturity }}</span><span class="text-white/30">•</span><span>{{ item.runtime }}</span></div>
-              <h1 class="mt-5 text-5xl font-extrabold tracking-tight sm:text-7xl">{{ item.title }}</h1>
+               <h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-7xl">{{ item.title }}</h1>
               <p class="mt-4 text-xl text-primary">{{ item.tagline }}</p>
               <p class="mt-5 max-w-xl leading-relaxed text-secondary-foreground">{{ item.description }}</p>
               <div class="mt-8 flex flex-wrap gap-3">
                 <a [routerLink]="['/watch', item.id]" (click)="startWatching()" class="rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-110">▶ Watch now</a>
                 <button type="button" (click)="toggleSaved()" class="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold transition hover:border-primary hover:text-primary">{{ store.isSaved(item.id) ? '✓ In my list' : '+ My list' }}</button>
               </div>
-              <div class="mt-8 flex items-center gap-6 text-sm text-secondary-foreground"><span><strong class="text-foreground">{{ item.rating }}</strong>/10 audience rating</span><span>{{ item.cast.join(' · ') }}</span></div>
+               <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-secondary-foreground"><span class="shrink-0"><strong class="text-foreground">{{ item.rating }}</strong>/10 audience rating</span><span class="min-w-0 break-words">{{ item.cast.join(' · ') }}</span></div>
             </div>
           </div>
         </section>
         <section class="mx-auto max-w-7xl px-5 pb-24 lg:px-10">
           <div class="grid gap-8 border-t border-white/10 pt-10 md:grid-cols-[1fr_280px]">
             <div><p class="eyebrow">About this title</p><p class="mt-3 max-w-2xl leading-relaxed text-secondary-foreground">{{ item.description }} Watch on any device with a ShofTV account. Premium titles include high-quality playback and an uninterrupted experience.</p></div>
-            <div class="rounded-2xl border border-white/10 bg-card p-5"><p class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Details</p><dl class="mt-4 space-y-3 text-sm"><div class="flex justify-between gap-3"><dt class="text-muted-foreground">Genre</dt><dd>{{ item.category }}</dd></div><div class="flex justify-between gap-3"><dt class="text-muted-foreground">Audio</dt><dd>Arabic · English</dd></div><div class="flex justify-between gap-3"><dt class="text-muted-foreground">Subtitles</dt><dd>Arabic · English</dd></div><div class="flex justify-between gap-3"><dt class="text-muted-foreground">Availability</dt><dd>{{ item.isPremium ? 'Premium' : 'Free' }}</dd></div></dl></div>
+             <div class="rounded-2xl border border-white/10 bg-card p-5"><p class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Details</p><dl class="mt-4 space-y-3 text-sm"><div class="flex justify-between gap-3"><dt class="shrink-0 text-muted-foreground">Genre</dt><dd class="min-w-0 break-words text-right">{{ item.category }}</dd></div><div class="flex justify-between gap-3"><dt class="shrink-0 text-muted-foreground">Audio</dt><dd class="min-w-0 break-words text-right">Arabic · English</dd></div><div class="flex justify-between gap-3"><dt class="shrink-0 text-muted-foreground">Subtitles</dt><dd class="min-w-0 break-words text-right">Arabic · English</dd></div><div class="flex justify-between gap-3"><dt class="shrink-0 text-muted-foreground">Availability</dt><dd class="min-w-0 break-words text-right">{{ item.isPremium ? 'Premium' : 'Free' }}</dd></div></dl></div>
           </div>
         </section>
         <section class="mx-auto max-w-7xl px-5 pb-24 lg:px-10">

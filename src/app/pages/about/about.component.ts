@@ -86,7 +86,7 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
             The passionate minds working tirelessly to bring the magic of movies to your screen.
           </p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           @for (member of team; track member.name) {
             <div class="text-center">
               <div class="w-full aspect-square rounded-xl bg-secondary border border-border overflow-hidden mb-4">
