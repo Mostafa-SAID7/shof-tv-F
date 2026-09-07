@@ -13,7 +13,7 @@
     "dev": "npx ng serve --host 0.0.0.0 --port 4200 --open"
   },
   "dependencies": {
-    "@angular/animations": "^19.2.20",
+    "@angular/animations": "^22.1.5",
     "@angular/common": "^19.2.20",
     "@angular/compiler": "^19.2.20",
     "@angular/core": "^19.2.20",
