@@ -38,7 +38,7 @@ import { CtaComponent } from '../../components/cta/cta.component';
 
       <app-devices />
       <app-cta />
-      <div *ngIf="showCookieBanner" class="fixed bottom-4 left-4 right-4 z-50 mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 bg-[#1a181e]/95 p-4 shadow-2xl backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:p-5">
+      <div *ngIf="showCookieBanner" class="fixed bottom-24 left-4 right-4 z-50 mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 bg-[#1a181e]/95 p-4 shadow-2xl backdrop-blur-xl sm:bottom-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
         <p class="max-w-xl text-xs leading-relaxed text-secondary-foreground">We use cookies to make shoftv feel smoother. By continuing, you agree to our <a routerLink="/help" class="text-primary hover:underline">privacy policy</a>.</p>
         <div class="flex shrink-0 items-center gap-2">
           <button (click)="showCookieBanner = false" class="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-foreground hover:border-primary transition-colors">Not now</button>

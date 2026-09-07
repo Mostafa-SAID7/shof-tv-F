@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <section class="relative isolate min-h-[720px] overflow-hidden lg:min-h-[800px]">
        <img src="/assets/img/home/hero.jpg" alt="A cinematic theatre audience watching a film" class="absolute inset-0 h-full w-full object-cover object-[58%_center]" />
@@ -12,8 +13,8 @@ import { CommonModule } from '@angular/common';
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
       <div class="absolute -right-32 top-24 h-72 w-72 rounded-full bg-primary/10 blur-[100px]"></div>
 
-      <div class="relative z-10 mx-auto flex min-h-[720px] max-w-7xl items-end px-5 pb-20 pt-36 lg:min-h-[800px] lg:items-center lg:px-10 lg:pb-0">
-        <div class="max-w-2xl">
+       <div class="relative z-10 mx-auto flex min-h-[720px] max-w-7xl items-end px-5 pb-20 pt-36 lg:min-h-[800px] lg:items-center lg:px-10 lg:pb-0">
+         <div class="min-w-0 w-full max-w-2xl">
           <div class="mb-7 flex items-center gap-3 animate-fade-in">
             <span class="h-px w-10 bg-primary"></span>
             <span class="eyebrow">Your seat is waiting</span>
@@ -21,15 +22,15 @@ import { CommonModule } from '@angular/common';
           <h1 class="max-w-xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-7xl lg:text-[88px] animate-fade-in-up">
             Stories that stay with you.
           </h1>
-          <p class="mt-7 max-w-lg text-base leading-7 text-secondary-foreground sm:text-lg animate-fade-in-up" style="animation-delay: .12s">
+           <p class="mt-7 min-w-0 max-w-lg text-base leading-7 text-secondary-foreground sm:text-lg animate-fade-in-up" style="animation-delay: .12s">
             A better way to discover cinema, live moments, and the shows everyone will be talking about tomorrow.
           </p>
-          <div class="mt-9 flex flex-col gap-3 sm:flex-row animate-fade-in-up" style="animation-delay: .24s">
-            <a href="#pricing" class="inline-flex items-center justify-center gap-3 rounded-full bg-primary px-7 py-4 text-sm font-bold text-primary-foreground shadow-xl shadow-primary/15 transition-all hover:-translate-y-0.5 hover:brightness-110">
+           <div class="mt-9 flex flex-col gap-3 sm:flex-row animate-fade-in-up" style="animation-delay: .24s">
+             <a routerLink="/plans" class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-7 py-4 text-sm font-bold text-primary-foreground shadow-xl shadow-primary/15 transition-all hover:-translate-y-0.5 hover:brightness-110 sm:w-auto">
               Start watching free
               <span aria-hidden="true">↗</span>
             </a>
-            <a href="#channels" class="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-7 py-4 text-sm font-semibold text-foreground backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10">
+             <a routerLink="/browse" class="inline-flex w-full items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-7 py-4 text-sm font-semibold text-foreground backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 sm:w-auto">
               Explore the library
             </a>
           </div>

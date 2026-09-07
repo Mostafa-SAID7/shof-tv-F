@@ -20,7 +20,7 @@ import { SiteLink } from '../../core/models/navigation.models';
           <p class="text-muted-foreground text-sm max-w-md mb-6">
             Curated stories, live moments, and a better way to find what to watch next.
           </p>
-          <a routerLink="/" fragment="pricing" class="inline-block bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-full hover:brightness-110 transition-all">
+           <a routerLink="/plans" class="inline-block bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-full hover:brightness-110 transition-all">
             Start watching free
           </a>
         </div>
