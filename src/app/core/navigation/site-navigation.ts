@@ -1,14 +1,14 @@
 import { SiteAction, SiteLink } from '../models/navigation.models';
 
 export const SITE_NAV_LINKS: readonly SiteLink[] = [
-  { label: 'Discover', route: '/' },
-  { label: 'About', route: '/about' },
-  { label: 'Help', route: '/help' },
+  { label: 'Browse', route: '/browse' },
+  { label: 'My list', route: '/watchlist' },
+  { label: 'Plans', route: '/plans' },
 ];
 
 export const SITE_NAV_ACTIONS: readonly SiteAction[] = [
-  { label: 'Account help', route: '/forgot-password', style: 'text' },
-  { label: 'Start free', route: '/', fragment: 'pricing', style: 'primary' },
+  { label: 'Account', route: '/account', style: 'text' },
+  { label: 'Start watching', route: '/browse', style: 'primary' },
 ];
 
 export const SITE_FOOTER_LINKS: readonly SiteLink[] = [
