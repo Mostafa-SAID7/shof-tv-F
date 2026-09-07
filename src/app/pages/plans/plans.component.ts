@@ -5,6 +5,15 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
 import { BillingService } from '../../platform/billing.service';
 import { PlatformStore } from '../../platform/platform.store';
 
+type PlanName = 'Free' | 'Premium' | 'Sports+';
+
+interface Plan {
+  name: PlanName;
+  price: string;
+  description: string;
+  features: string[];
+}
+
 @Component({
   selector: 'app-plans',
   standalone: true,
@@ -28,11 +37,11 @@ export class PlansComponent {
   readonly store = inject(PlatformStore);
   loading = '';
   message = '';
-  readonly plans = [
+  readonly plans: Plan[] = [
     { name: 'Free', price: '$0', description: 'A generous starting point for curious viewers.', features: ['Curated free library', 'Watchlist and progress', 'Watch on any device'] },
     { name: 'Premium', price: '$9.99', description: 'The full ShofTV experience for everyday watching.', features: ['Full on-demand library', '4K quality where available', 'Up to 4 devices', 'Offline viewing ready', 'No ads on on-demand'] },
     { name: 'Sports+', price: '$14.99', description: 'For live moments, match nights, and the whole story.', features: ['Everything in Premium', 'Exclusive sports channels', 'Live stats and replays', 'Up to 6 devices'] },
-  ] as const;
+  ];
 
   async checkout(plan: 'Premium' | 'Sports+'): Promise<void> {
     this.loading = plan; this.message = '';
