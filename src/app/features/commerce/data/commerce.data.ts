@@ -8,17 +8,17 @@ export const CONCESSION_TABS = [
 ] as const;
 
 export const CONCESSION_ITEMS: readonly ConcessionItem[] = [
-  { name: 'Large Popcorn', price: 8, description: 'Classic buttery goodness, big enough to share.', category: 'popcorn', image: '/assets/img/shoftv-poster-summer.jpg' },
-  { name: 'Medium Popcorn', price: 6, description: 'Perfectly portioned for one hungry moviegoer.', category: 'popcorn', image: '/assets/img/shoftv-poster-jazz.jpg' },
-  { name: 'Small Popcorn', price: 4.5, description: 'A quick snack to satisfy the craving.', category: 'popcorn', image: '/assets/img/shoftv-poster-desert.jpg' },
-  { name: 'Caramel Corn', price: 7.5, description: 'Sweet and crunchy caramel-coated delight.', category: 'popcorn', image: '/assets/img/shoftv-poster-fight.jpg' },
-  { name: 'Large Soda', price: 5, description: 'Choose from Coke, Sprite, or Fanta.', category: 'drinks', image: '/assets/img/shoftv-poster-rain.jpg' },
-  { name: 'Medium Soda', price: 4, description: 'The perfect companion to your popcorn.', category: 'drinks', image: '/assets/img/shoftv-poster-summer.jpg' },
-  { name: 'Water Bottle', price: 3, description: 'Pure spring water in a recyclable bottle.', category: 'drinks', image: '/assets/img/shoftv-poster-desert.jpg' },
-  { name: 'Nachos', price: 6.5, description: 'Crunchy tortilla chips with warm cheese sauce.', category: 'snacks', image: '/assets/img/shoftv-poster-jazz.jpg' },
-  { name: 'Candy Bar', price: 4, description: 'Choose from M&Ms, Snickers, or Reeses.', category: 'snacks', image: '/assets/img/shoftv-poster-rain.jpg' },
-  { name: 'Movie Night Combo', price: 15, description: 'Large popcorn + 2 large sodas + candy.', category: 'combos', image: '/assets/img/shoftv-cinema.jpg' },
-  { name: 'Date Night Combo', price: 22, description: '2 large popcorns + 2 drinks + nachos.', category: 'combos', image: '/assets/img/shoftv-hero.jpg' },
+  { name: 'Large Popcorn', price: 8, description: 'Classic buttery goodness, big enough to share.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
+  { name: 'Medium Popcorn', price: 6, description: 'Perfectly portioned for one hungry moviegoer.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
+  { name: 'Small Popcorn', price: 4.5, description: 'A quick snack to satisfy the craving.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
+  { name: 'Caramel Corn', price: 7.5, description: 'Sweet and crunchy caramel-coated delight.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
+  { name: 'Large Soda', price: 5, description: 'Choose from Coke, Sprite, or Fanta.', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' },
+  { name: 'Medium Soda', price: 4, description: 'The perfect companion to your popcorn.', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' },
+  { name: 'Water Bottle', price: 3, description: 'Pure spring water in a recyclable bottle.', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' },
+  { name: 'Nachos', price: 6.5, description: 'Crunchy tortilla chips with warm cheese sauce.', category: 'snacks', image: '/assets/img/pages/concessions/snacks.jpg' },
+  { name: 'Candy Bar', price: 4, description: 'Choose from M&Ms, Snickers, or Reeses.', category: 'snacks', image: '/assets/img/pages/concessions/snacks.jpg' },
+  { name: 'Movie Night Combo', price: 15, description: 'Large popcorn + 2 large sodas + candy.', category: 'combos', image: '/assets/img/pages/concessions/combos.jpg' },
+  { name: 'Date Night Combo', price: 22, description: '2 large popcorns + 2 drinks + nachos.', category: 'combos', image: '/assets/img/pages/concessions/combos.jpg' },
 ];
 
 export const GIFT_CARD_AMOUNTS: readonly GiftCardAmount[] = [

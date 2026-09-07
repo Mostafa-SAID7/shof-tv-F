@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <section class="relative isolate min-h-[720px] overflow-hidden lg:min-h-[800px]">
-      <img src="/assets/img/shoftv-hero.jpg" alt="A cinematic theatre audience watching a film" class="absolute inset-0 h-full w-full object-cover object-[58%_center]" />
+       <img src="/assets/img/home/hero.jpg" alt="A cinematic theatre audience watching a film" class="absolute inset-0 h-full w-full object-cover object-[58%_center]" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0b0b0d] via-[#0b0b0d]/85 to-[#0b0b0d]/10"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
       <div class="absolute -right-32 top-24 h-72 w-72 rounded-full bg-primary/10 blur-[100px]"></div>

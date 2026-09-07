@@ -3,12 +3,12 @@ import { ContentItem, PricingPlan } from '../models/home.models';
 export const HOME_CONTENT_CATEGORIES = ['All', 'Live', 'Movies', 'Series', 'Sports', 'Kids'] as const;
 
 export const HOME_CONTENT_ITEMS: readonly ContentItem[] = [
-  { title: 'After the Last Light', category: 'Series', badge: 'New', meta: '8 episodes', image: '/assets/img/shoftv-poster-desert.jpg' },
-  { title: 'Blue Note', category: 'Movies', badge: '4K', meta: '2h 04m', image: '/assets/img/shoftv-poster-jazz.jpg' },
-  { title: 'Neon Hours', category: 'Movies', badge: 'Top 10', meta: '1h 51m', image: '/assets/img/shoftv-poster-rain.jpg' },
-  { title: 'August, Again', category: 'Series', badge: 'New', meta: '6 episodes', image: '/assets/img/shoftv-poster-summer.jpg' },
-  { title: 'The Long Round', category: 'Sports', badge: 'Original', meta: '1h 47m', image: '/assets/img/shoftv-poster-fight.jpg' },
-  { title: 'Desert Lines', category: 'Movies', badge: 'HD', meta: '2h 12m', image: '/assets/img/shoftv-poster-desert.jpg' },
+  { title: 'After the Last Light', category: 'Series', badge: 'New', meta: '8 episodes', image: '/assets/img/home/posters/desert.jpg' },
+  { title: 'Blue Note', category: 'Movies', badge: '4K', meta: '2h 04m', image: '/assets/img/home/posters/jazz.jpg' },
+  { title: 'Neon Hours', category: 'Movies', badge: 'Top 10', meta: '1h 51m', image: '/assets/img/home/posters/rain.jpg' },
+  { title: 'August, Again', category: 'Series', badge: 'New', meta: '6 episodes', image: '/assets/img/home/posters/summer.jpg' },
+  { title: 'The Long Round', category: 'Sports', badge: 'Original', meta: '1h 47m', image: '/assets/img/home/posters/fight.jpg' },
+  { title: 'Desert Lines', category: 'Movies', badge: 'HD', meta: '2h 12m', image: '/assets/img/home/posters/desert.jpg' },
 ];
 
 export const HOME_PRICING_PLANS: readonly PricingPlan[] = [
