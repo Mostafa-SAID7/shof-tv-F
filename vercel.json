@@ -1,13 +1,35 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/shoftv-landing",
+  "outputDirectory": "dist/shoftv-landing/browser",
+  "public": true,
+  "github": {
+    "silent": true
+  },
   "env": {
-    "npm_config_registry": "https://registry.npmjs.org/",
-    "npm_config_legacy_peer_deps": "true",
-    "npm_config_strict_ssl": "false",
-    "npm_config_fetch_timeout": "120000",
-    "npm_config_fetch_retries": "5",
     "NODE_ENV": "production"
   },
-  "installCommand": "npm ci --legacy-peer-deps || npm install --legacy-peer-deps"
+  "routes": [
+    {
+      "src": "^/(?!.*\\\\.).*$",
+      "destination": "/index.html"
+    },
+    {
+      "src": "/js/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/css/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": ".*\\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|otf)$",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    }
+  ]
 }
