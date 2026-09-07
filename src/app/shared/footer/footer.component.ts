@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SITE_FOOTER_LINKS } from '../../core/navigation/site-navigation';
+import { SiteLink } from '../../core/models/navigation.models';
 
 @Component({
   selector: 'app-footer',
@@ -40,12 +42,7 @@ import { RouterModule } from '@angular/router';
   `,
 })
 export class FooterComponent {
-  readonly siteFooterLinks = [
-    { label: 'About', route: '/about' },
-    { label: 'Help center', route: '/help' },
-    { label: 'Contact', route: '/contact' },
-    { label: 'Gift cards', route: '/gift-cards' },
-  ];
+  readonly siteFooterLinks: readonly SiteLink[] = SITE_FOOTER_LINKS;
 
   year = new Date().getFullYear();
 }

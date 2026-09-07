@@ -1,16 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-help',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar />
 
       <!-- Hero with Search -->
       <section class="relative px-6 py-20 lg:py-28 overflow-hidden">
@@ -111,8 +110,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </section>
 
-      <app-footer />
     </div>
+    </app-page-shell>
   `,
 })
 export class HelpComponent {

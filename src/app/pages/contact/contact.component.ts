@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar />
 
       <div class="max-w-6xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
@@ -171,8 +170,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </div>
 
-      <app-footer />
     </div>
+    </app-page-shell>
   `,
 })
 export class ContactComponent {

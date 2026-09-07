@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { ContentCarouselComponent } from '../../components/content-carousel/content-carousel.component';
 import { FeaturesComponent } from '../../components/features/features.component';
@@ -17,8 +16,7 @@ import { FaqComponent } from '../../components/faq/faq.component';
   imports: [
     CommonModule,
     RouterModule,
-    NavbarComponent,
-    FooterComponent,
+    PageShellComponent,
     HeroComponent,
     ContentCarouselComponent,
     FeaturesComponent,
@@ -28,8 +26,8 @@ import { FaqComponent } from '../../components/faq/faq.component';
     FaqComponent,
   ],
   template: `
+    <app-page-shell>
     <div class="min-h-screen overflow-hidden bg-background text-foreground">
-      <app-navbar />
       <app-hero />
 
       <section class="border-y border-white/10 bg-[#111014]">
@@ -52,8 +50,6 @@ import { FaqComponent } from '../../components/faq/faq.component';
       <app-pricing />
       <app-faq />
       <app-cta />
-      <app-footer />
-
       <div *ngIf="showCookieBanner" class="fixed bottom-4 left-4 right-4 z-50 mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 bg-[#1a181e]/95 p-4 shadow-2xl backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:p-5">
         <p class="max-w-xl text-xs leading-relaxed text-secondary-foreground">We use cookies to make shoftv feel smoother. By continuing, you agree to our <a routerLink="/help" class="text-primary hover:underline">privacy policy</a>.</p>
         <div class="flex shrink-0 items-center gap-2">
@@ -62,6 +58,7 @@ import { FaqComponent } from '../../components/faq/faq.component';
         </div>
       </div>
     </div>
+    </app-page-shell>
   `,
 })
 export class HomeComponent {

@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar />
 
       <div class="max-w-3xl mx-auto px-6 py-16 text-center">
         <!-- Success Icon -->
@@ -96,8 +95,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </div>
 
-      <app-footer />
     </div>
+    </app-page-shell>
   `,
 })
 export class TicketComponent {

@@ -1,6 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { SITE_NAV_ACTIONS, SITE_NAV_LINKS } from '../../core/navigation/site-navigation';
+import { SiteAction, SiteLink } from '../../core/models/navigation.models';
 
 @Component({
   selector: 'app-navbar',
@@ -130,21 +132,8 @@ import { Router, RouterModule } from '@angular/router';
 export class NavbarComponent {
   constructor(private router: Router) {}
 
-  readonly siteLinks = [
-    { label: 'Discover', route: '/' },
-    { label: 'About', route: '/about' },
-    { label: 'Help', route: '/help' },
-  ];
-
-  readonly siteActions: {
-    label: string;
-    route: string;
-    style: 'text' | 'outline' | 'primary' | 'icon';
-    fragment?: string;
-  }[] = [
-    { label: 'Account help', route: '/forgot-password', style: 'text' },
-    { label: 'Start free', route: '/', fragment: 'pricing', style: 'primary' },
-  ];
+  readonly siteLinks: readonly SiteLink[] = SITE_NAV_LINKS;
+  readonly siteActions: readonly SiteAction[] = SITE_NAV_ACTIONS;
 
   isActive(route: string) {
     const currentUrl = this.router.url.split('?')[0];

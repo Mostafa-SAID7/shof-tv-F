@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar />
 
       <!-- Hero -->
       <section class="relative text-center py-24 lg:py-36 px-6 overflow-hidden">
@@ -103,8 +102,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </section>
 
-      <app-footer />
     </div>
+    </app-page-shell>
   `,
 })
 export class AboutComponent {

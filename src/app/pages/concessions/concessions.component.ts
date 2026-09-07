@@ -1,7 +1,6 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 interface ConcessionItem {
   name: string;
@@ -19,10 +18,10 @@ interface CartItem {
 @Component({
   selector: 'app-concessions',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar />
 
       <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -142,8 +141,8 @@ interface CartItem {
         </div>
       </div>
 
-      <app-footer />
     </div>
+    </app-page-shell>
   `,
 })
 export class ConcessionsComponent {
