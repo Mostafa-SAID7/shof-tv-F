@@ -1,20 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar
-        navStyle="plain"
-        [centerLinks]="navLinks"
-        [rightActions]="navActions"
-      />
 
       <div class="max-w-6xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
@@ -82,7 +77,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
           <div class="lg:col-span-3">
             <div class="bg-card/50 border border-border rounded-xl p-8">
               <h2 class="text-xl font-semibold text-foreground mb-6">Send us a Message</h2>
-              <form (ngSubmit)="onSubmit()" class="flex flex-col gap-5">
+              <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="flex flex-col gap-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">First Name</label>
@@ -90,6 +85,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
                       type="text"
                       [(ngModel)]="form.firstName"
                       name="firstName"
+                      required
                       placeholder="Jane"
                       class="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
                     />
@@ -100,6 +96,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
                       type="text"
                       [(ngModel)]="form.lastName"
                       name="lastName"
+                      required
                       placeholder="Doe"
                       class="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
                     />
@@ -112,6 +109,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
                     type="email"
                     [(ngModel)]="form.email"
                     name="email"
+                    required
                     placeholder="jane@example.com"
                     class="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
                   />
@@ -136,6 +134,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
                   <textarea
                     [(ngModel)]="form.message"
                     name="message"
+                    required
                     placeholder="How can we help you today?"
                     rows="5"
                     class="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
@@ -148,6 +147,12 @@ import { FooterComponent } from '../../shared/footer/footer.component';
                 >
                   Send Message
                 </button>
+                @if (submitted) {
+                  <p class="text-sm text-primary" role="status">Thanks — your message is ready for our support team.</p>
+                }
+                @if (errorMessage) {
+                  <p class="text-sm text-red-300" role="alert">{{ errorMessage }}</p>
+                }
               </form>
             </div>
           </div>
@@ -165,22 +170,11 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </div>
 
-      <app-footer [bottomLinks]="footerLinks" />
     </div>
+    </app-page-shell>
   `,
 })
 export class ContactComponent {
-  navLinks = [
-    { label: 'Home', route: '/' },
-    { label: 'Movies', route: '/movies' },
-    { label: 'Pricing', route: '/pricing' },
-    { label: 'Contact Us', route: '/contact', active: true },
-  ];
-
-  navActions = [
-    { label: 'Sign In', route: '/login', style: 'outline' as const },
-  ];
-
   form = {
     firstName: '',
     lastName: '',
@@ -189,13 +183,16 @@ export class ContactComponent {
     message: '',
   };
 
-  footerLinks = [
-    { label: 'Terms of Service', route: '/terms' },
-    { label: 'Privacy Policy', route: '/privacy' },
-    { label: 'Contact Support', route: '/contact' },
-  ];
+  submitted = false;
+  errorMessage = '';
 
   onSubmit() {
-    console.log('Contact form submitted:', this.form);
+    this.submitted = false;
+    this.errorMessage = '';
+    if (!this.form.firstName.trim() || !this.form.lastName.trim() || !this.form.email.trim() || !this.form.message.trim()) {
+      this.errorMessage = 'Please complete every required field before sending.';
+      return;
+    }
+    this.submitted = true;
   }
 }

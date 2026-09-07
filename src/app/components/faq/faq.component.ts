@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import {
   trigger,
   state,
@@ -17,7 +18,7 @@ interface FaqItem {
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   animations: [
     trigger('expandCollapse', [
       state(
@@ -91,7 +92,7 @@ interface FaqItem {
         <div class="mt-12 text-center">
           <p class="text-muted-foreground text-sm">
             Still have questions?
-            <a href="#" class="text-primary hover:underline font-medium"
+            <a routerLink="/contact" class="text-primary hover:underline font-medium"
               >Contact our support team</a
             >
           </p>

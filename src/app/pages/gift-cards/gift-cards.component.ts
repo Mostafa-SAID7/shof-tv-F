@@ -1,27 +1,15 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-gift-cards',
   standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, PageShellComponent],
   templateUrl: './gift-cards.component.html',
 })
 export class GiftCardsComponent {
-  navLinks = [
-    { label: 'Movies', route: '/movies' },
-    { label: 'Theaters', route: '/theaters' },
-    { label: 'Pricing', route: '/pricing' },
-    { label: 'Gift Cards', route: '/gift-cards', active: true },
-  ];
-
-  navActions = [
-    { label: '', route: '/account', style: 'icon' as const },
-  ];
-
   amounts = [
     { value: 25, label: '$25', popular: false },
     { value: 50, label: '$50', popular: true },
@@ -50,18 +38,26 @@ export class GiftCardsComponent {
   recipientName = '';
   recipientEmail = '';
   personalMessage = '';
+  purchaseMessage = '';
 
   totalDisplay = computed(() => {
     const amt = this.selectedAmount();
     return amt === 0 ? '$0.00' : `$${amt.toFixed(2)}`;
   });
 
-  footerLinks = [
-    { label: 'Terms of Service', route: '/terms' },
-    { label: 'Privacy Policy', route: '/privacy' },
-  ];
-
   selectAmount(value: number) {
     this.selectedAmount.set(value);
+  }
+
+  purchase() {
+    if (this.selectedAmount() === 0 && (!this.customAmount || Number(this.customAmount) <= 0)) {
+      this.purchaseMessage = 'Enter a custom amount greater than $0 to continue.';
+      return;
+    }
+    if (!this.recipientName.trim() || !this.recipientEmail.trim()) {
+      this.purchaseMessage = 'Add the recipient name and email to continue.';
+      return;
+    }
+    this.purchaseMessage = `Your ${this.selectedCardType()} gift card is ready for checkout.`;
   }
 }

@@ -1,9 +1,5 @@
+<app-page-shell>
 <div class="min-h-screen bg-background text-foreground">
-  <app-navbar
-    navStyle="plain"
-    [centerLinks]="navLinks"
-    [rightActions]="navActions"
-  />
 
   <!-- Hero Banner -->
   <section class="relative isolate mx-6 mt-6 overflow-hidden rounded-[2rem] border border-white/10 p-12 text-center lg:mx-12 md:p-16">
@@ -118,15 +114,20 @@
         <span class="text-3xl font-bold text-foreground">{{ totalDisplay() }}</span>
       </div>
       <button
+        type="button"
+        (click)="purchase()"
         class="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-10 py-3.5 rounded-lg hover:brightness-110 transition-all"
       >
         Purchase gift card
       </button>
+      @if (purchaseMessage) {
+        <p class="mt-4 text-sm text-primary" role="status">{{ purchaseMessage }}</p>
+      }
       <p class="text-xs text-muted-foreground mt-4">
         By purchasing, you agree to the ShofTV Gift Card Terms and Conditions. Gift cards are non-refundable.
       </p>
     </div>
   </div>
 
-  <app-footer [bottomLinks]="footerLinks" />
 </div>
+</app-page-shell>

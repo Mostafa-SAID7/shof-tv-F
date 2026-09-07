@@ -1,7 +1,6 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 interface ConcessionItem {
   name: string;
@@ -19,14 +18,10 @@ interface CartItem {
 @Component({
   selector: 'app-concessions',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar
-        navStyle="plain"
-        [centerLinks]="navLinks"
-        [rightActions]="navActions"
-      />
 
       <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -134,32 +129,23 @@ interface CartItem {
                   </div>
                 </div>
 
-                <button class="w-full bg-primary text-primary-foreground font-semibold py-3 rounded-lg mt-6 hover:brightness-110 transition-all">
+                <button type="button" (click)="checkout()" class="w-full bg-primary text-primary-foreground font-semibold py-3 rounded-lg mt-6 hover:brightness-110 transition-all">
                   Checkout Concessions
                 </button>
+                @if (checkoutMessage) {
+                  <p class="mt-3 text-center text-sm text-primary" role="status">{{ checkoutMessage }}</p>
+                }
               }
             </div>
           </div>
         </div>
       </div>
 
-      <app-footer [bottomLinks]="footerLinks" />
     </div>
+    </app-page-shell>
   `,
 })
 export class ConcessionsComponent {
-  navLinks = [
-    { label: 'Movies', route: '/movies' },
-    { label: 'Theaters', route: '/theaters' },
-    { label: 'Concessions', route: '/concessions', active: true },
-    { label: 'My Account', route: '/account' },
-  ];
-
-  navActions = [
-    { label: 'Checkout', route: '/checkout', style: 'outline' as const },
-    { label: 'Sign Out', route: '/login', style: 'primary' as const },
-  ];
-
   tabs = [
     { key: 'popcorn', label: 'Popcorn', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
     { key: 'drinks', label: 'Drinks', icon: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z' },
@@ -196,11 +182,7 @@ export class ConcessionsComponent {
   subtotal = computed(() => this.cart().reduce((sum, entry) => sum + entry.item.price * entry.qty, 0));
   tax = computed(() => this.subtotal() * 0.08);
   total = computed(() => this.subtotal() + this.tax());
-
-  footerLinks = [
-    { label: 'Terms of Service', route: '/terms' },
-    { label: 'Privacy Policy', route: '/privacy' },
-  ];
+  checkoutMessage = '';
 
   addToCart(item: ConcessionItem) {
     const current = this.cartItems();
@@ -216,5 +198,9 @@ export class ConcessionsComponent {
 
   removeFromCart(name: string) {
     this.cartItems.set(this.cartItems().filter(c => c.item.name !== name));
+  }
+
+  checkout() {
+    this.checkoutMessage = `Your ${this.cart().length} item${this.cart().length === 1 ? '' : 's'} are ready for checkout.`;
   }
 }

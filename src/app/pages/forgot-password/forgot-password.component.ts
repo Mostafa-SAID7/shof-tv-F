@@ -34,7 +34,7 @@ import { RouterModule } from '@angular/router';
             Enter your email address and we'll send you a link to reset your password.
           </p>
 
-          <form (ngSubmit)="onSubmit()" class="text-left">
+            <form (ngSubmit)="onSubmit()" #resetForm="ngForm" class="text-left">
             <label class="block text-sm font-semibold text-foreground mb-2">Email Address</label>
             <div class="flex items-center bg-secondary border border-border rounded-lg overflow-hidden mb-6">
               <div class="pl-4 text-muted-foreground">
@@ -46,6 +46,7 @@ import { RouterModule } from '@angular/router';
                 type="email"
                 [(ngModel)]="email"
                 name="email"
+                required
                 placeholder="Enter your email address"
                 class="flex-1 bg-transparent px-3 py-3.5 text-sm text-foreground placeholder-muted-foreground focus:outline-none"
               />
@@ -59,11 +60,14 @@ import { RouterModule } from '@angular/router';
             </button>
           </form>
 
-          <a routerLink="/login" class="text-sm text-primary hover:underline inline-flex items-center gap-1">
+          @if (submitted) {
+            <p class="mb-4 text-sm text-primary" role="status">If that email is registered, a reset link is on its way.</p>
+          }
+          <a routerLink="/" class="text-sm text-primary hover:underline inline-flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
-            Back to Login
+            Back to Home
           </a>
         </div>
       </div>
@@ -77,8 +81,10 @@ import { RouterModule } from '@angular/router';
 })
 export class ForgotPasswordComponent {
   email = '';
+  submitted = false;
 
   onSubmit() {
-    console.log('Reset link requested for:', this.email);
+    if (!this.email.trim()) return;
+    this.submitted = true;
   }
 }

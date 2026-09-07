@@ -1,20 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
-import { FooterComponent } from '../../shared/footer/footer.component';
+import { PageShellComponent } from '../../core/layout/page-shell.component';
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, PageShellComponent],
   template: `
+    <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
-      <app-navbar
-        navStyle="plain"
-        [centerLinks]="navLinks"
-        [rightActions]="navActions"
-      />
 
       <div class="max-w-3xl mx-auto px-6 py-16 text-center">
         <!-- Success Icon -->
@@ -85,7 +80,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 
         <!-- Actions -->
         <div class="flex items-center justify-center gap-4 mt-10">
-          <button class="flex items-center gap-2 border border-border text-foreground font-medium px-8 py-3 rounded-full hover:border-border-highlight transition-colors">
+          <button type="button" (click)="printTicket()" class="flex items-center gap-2 border border-border text-foreground font-medium px-8 py-3 rounded-full hover:border-border-highlight transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>
@@ -100,21 +95,11 @@ import { FooterComponent } from '../../shared/footer/footer.component';
         </div>
       </div>
 
-      <app-footer [bottomLinks]="footerLinks" />
     </div>
+    </app-page-shell>
   `,
 })
 export class TicketComponent {
-  navLinks = [
-    { label: 'Movies', route: '/movies' },
-    { label: 'Theaters', route: '/theaters' },
-    { label: 'My Tickets', route: '/tickets' },
-  ];
-
-  navActions = [
-    { label: '', route: '/account', style: 'icon' as const },
-  ];
-
   ticket = {
     movie: 'Dune: Part Two',
     format: 'IMAX 70mm Experience',
@@ -124,9 +109,8 @@ export class TicketComponent {
     orderNumber: '#STV-99281A',
   };
 
-  footerLinks = [
-    { label: 'Terms of Service', route: '/terms' },
-    { label: 'Privacy Policy', route: '/privacy' },
-    { label: 'Contact Support', route: '/contact' },
-  ];
+  printTicket() {
+    window.print();
+  }
+
 }
