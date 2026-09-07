@@ -25,7 +25,7 @@ interface CartItem {
 
       <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10">
         <section class="relative mb-10 overflow-hidden rounded-3xl border border-white/10 p-8 md:p-10">
-          <img src="/assets/img/pages/concessions/concessions.jpg" alt="Fresh cinema concessions ready for pickup" class="absolute inset-0 h-full w-full object-cover opacity-35" />
+          <img src="/pages/concessions/concessions.jpg" alt="Fresh cinema concessions ready for pickup" class="absolute inset-0 h-full w-full object-cover opacity-35" />
           <div class="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-transparent"></div>
           <div class="relative max-w-xl">
             <p class="eyebrow">Make it a night</p>
@@ -165,17 +165,17 @@ export class ConcessionsComponent {
   activeTab = signal('popcorn');
 
   items: ConcessionItem[] = [
-    { name: 'Large Popcorn', price: 8.00, description: 'Classic buttery goodness, big enough to share.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
-    { name: 'Medium Popcorn', price: 6.00, description: 'Perfectly portioned for one hungry moviegoer.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
-    { name: 'Small Popcorn', price: 4.50, description: 'A quick snack to satisfy the craving.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
-    { name: 'Caramel Corn', price: 7.50, description: 'Sweet and crunchy caramel-coated delight.', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' },
-    { name: 'Large Soda', price: 5.00, description: 'Choose from Coke, Sprite, or Fanta.', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' },
-    { name: 'Medium Soda', price: 4.00, description: 'The perfect companion to your popcorn.', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' },
-    { name: 'Water Bottle', price: 3.00, description: 'Pure spring water in a recyclable bottle.', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' },
-    { name: 'Nachos', price: 6.50, description: 'Crunchy tortilla chips with warm cheese sauce.', category: 'snacks', image: '/assets/img/pages/concessions/snacks.jpg' },
-    { name: 'Candy Bar', price: 4.00, description: 'Choose from M&Ms, Snickers, or Reeses.', category: 'snacks', image: '/assets/img/pages/concessions/snacks.jpg' },
-    { name: 'Movie Night Combo', price: 15.00, description: 'Large popcorn + 2 large sodas + candy.', category: 'combos', image: '/assets/img/pages/concessions/combos.jpg' },
-    { name: 'Date Night Combo', price: 22.00, description: '2 large popcorns + 2 drinks + nachos.', category: 'combos', image: '/assets/img/pages/concessions/combos.jpg' },
+    { name: 'Large Popcorn', price: 8.00, description: 'Classic buttery goodness, big enough to share.', category: 'popcorn', image: '/pages/concessions/popcorn.jpg' },
+    { name: 'Medium Popcorn', price: 6.00, description: 'Perfectly portioned for one hungry moviegoer.', category: 'popcorn', image: '/pages/concessions/popcorn.jpg' },
+    { name: 'Small Popcorn', price: 4.50, description: 'A quick snack to satisfy the craving.', category: 'popcorn', image: '/pages/concessions/popcorn.jpg' },
+    { name: 'Caramel Corn', price: 7.50, description: 'Sweet and crunchy caramel-coated delight.', category: 'popcorn', image: '/pages/concessions/popcorn.jpg' },
+    { name: 'Large Soda', price: 5.00, description: 'Choose from Coke, Sprite, or Fanta.', category: 'drinks', image: '/pages/concessions/drinks.jpg' },
+    { name: 'Medium Soda', price: 4.00, description: 'The perfect companion to your popcorn.', category: 'drinks', image: '/pages/concessions/drinks.jpg' },
+    { name: 'Water Bottle', price: 3.00, description: 'Pure spring water in a recyclable bottle.', category: 'drinks', image: '/pages/concessions/drinks.jpg' },
+    { name: 'Nachos', price: 6.50, description: 'Crunchy tortilla chips with warm cheese sauce.', category: 'snacks', image: '/pages/concessions/snacks.jpg' },
+    { name: 'Candy Bar', price: 4.00, description: 'Choose from M&Ms, Snickers, or Reeses.', category: 'snacks', image: '/pages/concessions/snacks.jpg' },
+    { name: 'Movie Night Combo', price: 15.00, description: 'Large popcorn + 2 large sodas + candy.', category: 'combos', image: '/pages/concessions/combos.jpg' },
+    { name: 'Date Night Combo', price: 22.00, description: '2 large popcorns + 2 drinks + nachos.', category: 'combos', image: '/pages/concessions/combos.jpg' },
   ];
 
   filteredItems = computed(() =>
@@ -183,8 +183,8 @@ export class ConcessionsComponent {
   );
 
   cartItems = signal<CartItem[]>([
-    { item: { name: 'Large Popcorn', price: 8.00, description: '', category: 'popcorn', image: '/assets/img/pages/concessions/popcorn.jpg' }, qty: 1 },
-    { item: { name: 'Large Soda', price: 5.00, description: '', category: 'drinks', image: '/assets/img/pages/concessions/drinks.jpg' }, qty: 1 },
+    { item: { name: 'Large Popcorn', price: 8.00, description: '', category: 'popcorn', image: '/pages/concessions/popcorn.jpg' }, qty: 1 },
+    { item: { name: 'Large Soda', price: 5.00, description: '', category: 'drinks', image: '/pages/concessions/drinks.jpg' }, qty: 1 },
   ]);
 
   cart = computed(() => this.cartItems());

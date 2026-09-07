@@ -13,7 +13,7 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
 
       <!-- Hero with Search -->
       <section class="relative px-6 py-20 lg:py-28 overflow-hidden">
-        <img src="/assets/img/pages/help/help.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-15" />
+        <img src="/pages/help/help.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-15" />
         <div class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/95 to-background pointer-events-none"></div>
         <div class="relative z-10 max-w-2xl mx-auto text-center">
           <h1 class="text-3xl md:text-5xl font-bold text-foreground mb-8">How can we help you?</h1>

@@ -21,7 +21,7 @@ import { SelectControlComponent, SelectOption } from '../../shared/select-contro
               Have a question about your subscription, a movie request, or just want to say hi? We're here for you.
             </p>
             <div class="relative mb-8 overflow-hidden rounded-2xl border border-white/10 aspect-[16/9]">
-              <img src="/assets/img/pages/contact/contact.jpg" alt="A welcoming ShofTV cinema space" class="h-full w-full object-cover" />
+              <img src="/pages/contact/contact.jpg" alt="A welcoming ShofTV cinema space" class="h-full w-full object-cover" />
               <div class="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent"></div>
               <p class="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/80">Your cinema, our care</p>
             </div>

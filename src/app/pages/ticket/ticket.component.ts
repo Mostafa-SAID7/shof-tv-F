@@ -28,7 +28,7 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
             <!-- Left: Movie Info -->
             <div class="md:col-span-3 relative">
               <div class="relative overflow-hidden p-8 min-h-[280px] flex flex-col justify-end text-left">
-                <img src="/assets/img/pages/ticket/ticket.jpg" alt="Dune: Part Two key art" class="absolute inset-0 h-full w-full object-cover opacity-75" />
+                <img src="/pages/ticket/ticket.jpg" alt="Dune: Part Two key art" class="absolute inset-0 h-full w-full object-cover opacity-75" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10"></div>
                 <div class="relative">
                 <span class="inline-block bg-foreground/10 backdrop-blur text-foreground text-xs font-semibold px-3 py-1 rounded border border-foreground/20 mb-3 w-fit">
