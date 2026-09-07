@@ -1,16 +1,12 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/shoftv-landing/browser",
-  "public": true,
-  "github": {
-    "silent": true
-  },
   "env": {
     "NODE_ENV": "production"
   },
   "routes": [
     {
-      "src": "^/(?!.*\\\\.).*$",
+      "src": "^/(?!.*\\.).*$",
       "destination": "/index.html"
     },
     {
