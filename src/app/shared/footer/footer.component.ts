@@ -20,7 +20,7 @@ import { SiteLink } from '../../core/models/navigation.models';
           <p class="text-muted-foreground text-sm max-w-md mb-6">
             Curated stories, live moments, and a better way to find what to watch next.
           </p>
-          <a routerLink="/" fragment="pricing" class="inline-block bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-full hover:brightness-110 transition-all">
+           <a routerLink="/plans" class="inline-block bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-full hover:brightness-110 transition-all">
             Start watching free
           </a>
         </div>
@@ -30,7 +30,7 @@ import { SiteLink } from '../../core/models/navigation.models';
         <div class="flex items-center gap-2 text-xs text-muted-foreground">
           <span>&copy; {{ year }} shoftv. All stories reserved.</span>
         </div>
-        <nav class="flex items-center gap-6 text-xs" aria-label="Footer navigation">
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs" aria-label="Footer navigation">
           @for (link of siteFooterLinks; track link.label) {
             <a [routerLink]="link.route" class="text-muted-foreground hover:text-primary transition-colors">
               {{ link.label }}

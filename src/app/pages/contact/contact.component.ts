@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PageShellComponent } from '../../core/layout/page-shell.component';
+import { SelectControlComponent, SelectOption } from '../../shared/select-control/select-control.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, PageShellComponent],
+  imports: [CommonModule, FormsModule, PageShellComponent, SelectControlComponent],
   template: `
     <app-page-shell>
     <div class="min-h-screen bg-background text-foreground">
@@ -19,6 +20,11 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
             <p class="text-muted-foreground leading-relaxed mb-10">
               Have a question about your subscription, a movie request, or just want to say hi? We're here for you.
             </p>
+            <div class="relative mb-8 overflow-hidden rounded-2xl border border-white/10 aspect-[16/9]">
+              <img src="/assets/img/pages/contact/contact.jpg" alt="A welcoming ShofTV cinema space" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent"></div>
+              <p class="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/80">Your cinema, our care</p>
+            </div>
 
             <!-- Contact Cards -->
             <div class="flex flex-col gap-4">
@@ -117,16 +123,12 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
 
                 <div>
                   <label class="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Subject</label>
-                  <select
-                    [(ngModel)]="form.subject"
-                    name="subject"
-                    class="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors appearance-none"
-                  >
-                    <option value="subscription">Subscription Inquiry</option>
-                    <option value="technical">Technical Support</option>
-                    <option value="billing">Billing Question</option>
-                    <option value="general">General Inquiry</option>
-                  </select>
+                  <app-select-control
+                    [options]="subjectOptions"
+                    [value]="form.subject"
+                    ariaLabel="Contact subject"
+                    (valueChange)="form.subject = $event"
+                  />
                 </div>
 
                 <div>
@@ -175,6 +177,12 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
   `,
 })
 export class ContactComponent {
+  readonly subjectOptions: readonly SelectOption[] = [
+    { value: 'subscription', label: 'Subscription Inquiry' },
+    { value: 'technical', label: 'Technical Support' },
+    { value: 'billing', label: 'Billing Question' },
+    { value: 'general', label: 'General Inquiry' },
+  ];
   form = {
     firstName: '',
     lastName: '',

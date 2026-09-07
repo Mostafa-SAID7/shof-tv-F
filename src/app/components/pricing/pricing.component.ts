@@ -43,11 +43,10 @@ interface PricingPlan {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           <div
             *ngFor="let plan of plans"
-            class="relative bg-card/70 border rounded-2xl p-6 lg:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:bg-card"
+            class="relative flex h-full flex-col rounded-3xl border bg-card/80 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-card lg:p-8"
             [class.border-primary]="plan.popular"
             [class.border-border]="!plan.popular"
-            [class.shadow-2xl]="plan.popular"
-            [ngClass]="{ 'shadow-primary/10': plan.popular }"
+            [ngClass]="{ 'shadow-2xl shadow-primary/10 ring-1 ring-primary/20': plan.popular, 'shadow-lg shadow-black/10': !plan.popular }"
           >
             <!-- Popular badge -->
             <div
@@ -60,7 +59,7 @@ interface PricingPlan {
               >
             </div>
 
-            <div class="mb-6">
+            <div class="mb-6 min-h-[5.5rem]">
               <h3 class="text-lg font-display font-semibold text-foreground">
                 {{ plan.name }}
               </h3>
@@ -69,8 +68,8 @@ interface PricingPlan {
               </p>
             </div>
 
-            <div class="mb-6">
-              <span class="text-4xl font-display font-bold text-foreground">{{
+            <div class="mb-6 flex items-baseline">
+              <span class="text-4xl font-display font-bold tracking-tight text-foreground">{{
                 plan.price
               }}</span>
               <span class="text-muted-foreground text-sm ml-1">/{{ plan.period }}</span>
@@ -104,13 +103,11 @@ interface PricingPlan {
               routerLink="/"
               fragment="signup"
               (click)="selectPlan(plan.name)"
-              class="w-full py-3.5 rounded-xl font-semibold text-sm transition-colors"
-              [class.bg-primary]="plan.popular"
-              [class.text-primary-foreground]="plan.popular"
-              [ngClass]="{ 'hover:bg-primary/90': plan.popular }"
-              [class.bg-secondary]="!plan.popular"
-              [class.text-secondary-foreground]="!plan.popular"
-              [ngClass]="{ 'hover:bg-secondary/80': !plan.popular }"
+              class="mt-auto flex w-full items-center justify-center rounded-2xl border px-5 py-3.5 text-sm font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/60"
+              [ngClass]="{
+                'bg-primary text-primary-foreground border-primary hover:brightness-110 hover:-translate-y-0.5': plan.popular,
+                'bg-secondary border-white/15 text-foreground hover:border-primary hover:bg-primary/10 hover:text-primary': !plan.popular
+              }"
             >
               {{ plan.cta }}
             </a>

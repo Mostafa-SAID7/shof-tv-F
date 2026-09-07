@@ -47,6 +47,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "allowedHosts": [".replit.dev"]
+          },
           "configurations": {
             "production": {
               "buildTarget": "shoftv-landing:build:production"

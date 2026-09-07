@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PageShellComponent } from '../../core/layout/page-shell.component';
 import { ContentCardComponent } from '../../shared/content-card/content-card.component';
+import { SelectControlComponent, SelectOption } from '../../shared/select-control/select-control.component';
 import { CATEGORIES } from '../../platform/platform.data';
 import { PlatformStore } from '../../platform/platform.store';
 import { ContentCategory } from '../../platform/platform.models';
@@ -11,7 +12,7 @@ import { ContentCategory } from '../../platform/platform.models';
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, PageShellComponent, ContentCardComponent],
+  imports: [CommonModule, FormsModule, RouterModule, PageShellComponent, ContentCardComponent, SelectControlComponent],
   template: `
     <app-page-shell>
       <main class="min-h-screen bg-background pb-24 pt-32 text-foreground">
@@ -54,7 +55,7 @@ import { ContentCategory } from '../../platform/platform.models';
             </div>
             <div class="mt-8 flex items-end justify-between">
               <div><p class="eyebrow">{{ results().length }} titles</p><h2 class="mt-2 text-2xl font-bold">{{ selectedCategory() === 'All' ? 'Everything worth watching' : selectedCategory() }}</h2></div>
-              <select [(ngModel)]="sort" class="rounded-full border border-white/10 bg-card px-4 py-2 text-xs text-secondary-foreground outline-none"><option value="featured">Featured</option><option value="rating">Top rated</option><option value="newest">Newest</option></select>
+              <app-select-control [options]="sortOptions" [value]="sort" ariaLabel="Sort titles" (valueChange)="sort = $event" class="w-40" />
             </div>
             <div *ngIf="results().length; else empty" class="mt-7 grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               <app-content-card *ngFor="let title of results()" [title]="title" />
@@ -72,6 +73,11 @@ export class CatalogComponent {
   readonly selectedCategory = signal<ContentCategory>('All');
   readonly query = signal('');
   sort = 'featured';
+  readonly sortOptions: readonly SelectOption[] = [
+    { value: 'featured', label: 'Featured' },
+    { value: 'rating', label: 'Top rated' },
+    { value: 'newest', label: 'Newest' },
+  ];
 
   readonly results = computed(() => {
     const normalized = this.query().trim().toLowerCase();

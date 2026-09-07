@@ -28,7 +28,7 @@ interface ChatMessage {
 
     <!-- Chat Window -->
     @if (isOpen()) {
-      <div class="fixed bottom-6 right-6 w-[360px] max-h-[540px] bg-card border border-border rounded-2xl shadow-2xl flex flex-col z-50 animate-scale-in overflow-hidden">
+      <div class="fixed bottom-4 left-4 right-4 max-h-[calc(100dvh-2rem)] w-auto bg-card border border-border rounded-2xl shadow-2xl flex flex-col z-50 animate-scale-in overflow-hidden sm:bottom-6 sm:left-auto sm:right-6 sm:w-[360px]">
         <!-- Header -->
         <div class="flex items-center justify-between px-5 py-4 border-b border-border bg-card">
           <div class="flex items-center gap-3">

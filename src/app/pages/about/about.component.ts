@@ -12,7 +12,8 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
 
       <!-- Hero -->
       <section class="relative text-center py-24 lg:py-36 px-6 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background pointer-events-none"></div>
+        <img src="/assets/img/pages/about/about.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/95 to-background pointer-events-none"></div>
         <div class="relative z-10 max-w-3xl mx-auto">
           <h1 class="text-4xl md:text-6xl font-display font-bold leading-tight mb-4">
             The Future of Cinema
@@ -85,7 +86,7 @@ import { PageShellComponent } from '../../core/layout/page-shell.component';
             The passionate minds working tirelessly to bring the magic of movies to your screen.
           </p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           @for (member of team; track member.name) {
             <div class="text-center">
               <div class="w-full aspect-square rounded-xl bg-secondary border border-border overflow-hidden mb-4">
