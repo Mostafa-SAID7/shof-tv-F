@@ -1,10 +1,6 @@
-# Contributing to Shof TV
+# Contributing to ShofTV
 
-Thank you for your interest in contributing to Shof TV! This document provides guidelines and instructions for contributing.
-
-## Code of Conduct
-
-Please be respectful and constructive in all interactions with other contributors.
+Thank you for your interest in contributing to ShofTV! We welcome contributions from the community and are excited to have you participate.
 
 ## Getting Started
 
@@ -13,56 +9,64 @@ Please be respectful and constructive in all interactions with other contributor
 - npm 9.x or higher
 - Git
 
-### Setup Development Environment
+### Development Setup
 
-1. Fork the repository
-2. Clone your fork:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/shof-tv.git
-   cd shof-tv
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Mostafa-SAID7/shof-tv-F.git
+cd shof-tv-F
 
-3. Add upstream remote:
-   ```bash
-   git remote add upstream https://github.com/Mostafa-SAID7/shof-tv.git
-   ```
+# Install dependencies
+npm ci --legacy-peer-deps
 
-4. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-5. Create a feature branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+# Start development server
+npm run dev
+```
 
 ## Development Workflow
 
-### Running the Development Server
+### 1. Create a Branch
 ```bash
-npm start
+git checkout -b feature/your-feature-name
+# or
+git checkout -b fix/your-bug-fix
 ```
-The app will be available at `http://localhost:4200`
 
-### Building for Production
+Branch naming convention:
+- `feature/description` - New features
+- `fix/description` - Bug fixes
+- `docs/description` - Documentation updates
+- `chore/description` - Build, dependencies, etc
+
+### 2. Make Your Changes
+
+- Follow the existing code style and conventions
+- Write clear, descriptive commit messages
+- Keep commits focused and atomic
+- Update relevant tests and documentation
+
+### 3. Testing
+
 ```bash
+# Run linter
+npm run lint
+
+# Run tests
+npm run test
+
+# Build project
 npm run build
 ```
 
-### Running Tests
+### 4. Commit and Push
+
 ```bash
-npm test
+git add .
+git commit -m "type(scope): description"
+git push origin your-branch-name
 ```
 
-### Linting
-```bash
-npm run lint
-```
-
-## Commit Guidelines
-
-Follow conventional commits format:
+Commit message format:
 ```
 type(scope): subject
 
@@ -71,109 +75,90 @@ body
 footer
 ```
 
-### Types
-- `feat`: A new feature
-- `fix`: A bug fix
-- `docs`: Documentation only changes
-- `style`: Changes that don't affect code meaning (formatting, etc.)
-- `refactor`: Code change that neither fixes a bug nor adds a feature
-- `perf`: Code change that improves performance
-- `test`: Adding or updating tests
-- `chore`: Changes to build process, dependencies, etc.
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`
 
-### Examples
+### 5. Create a Pull Request
+
+- Use a descriptive title
+- Reference related issues: `Fixes #123`
+- Fill out the PR template completely
+- Ensure all checks pass
+
+## Code Style
+
+### TypeScript
+- Use strict mode (`"strict": true`)
+- Avoid `any` types
+- Use meaningful variable names
+- Add JSDoc comments for functions
+
+### Angular
+- Use standalone components where appropriate
+- Follow Angular style guide
+- Keep components focused (single responsibility)
+- Use proper dependency injection
+
+### CSS/Tailwind
+- Use Tailwind utilities instead of custom CSS
+- Follow mobile-first approach
+- Group related utilities
+
+## Commit Message Guidelines
+
+We follow conventional commits:
+
 ```
-feat(navbar): add mobile menu toggle
-fix(hero): correct image alignment on mobile
-docs: update installation instructions
+feat(auth): add login validation
+fix(ui): resolve button styling issue
+docs(readme): update setup instructions
+chore(deps): update angular to 19.0.0
 ```
 
 ## Pull Request Process
 
-1. Update your branch with the latest upstream changes:
-   ```bash
-   git fetch upstream
-   git rebase upstream/main
-   ```
-
-2. Push your changes:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-3. Create a Pull Request on GitHub with:
-   - Clear title and description
-   - Reference to related issues
-   - Screenshots if UI changes
-   - Testing instructions
-
-4. Ensure all checks pass:
-   - Build succeeds
-   - Tests pass
-   - Linting passes
-
-5. Request review from maintainers
-
-6. Address any feedback and update your PR
-
-## Code Style
-
-### TypeScript/Angular
-- Use strict mode
-- Follow Angular style guide
-- Use meaningful variable names
-- Add comments for complex logic
-- Keep functions small and focused
-
-### CSS
-- Use Tailwind CSS utilities
-- Follow BEM naming for custom classes
-- Keep specificity low
-- Mobile-first approach
-
-## Testing
-
-- Write tests for new features
-- Ensure existing tests pass
-- Aim for >80% code coverage
-- Use descriptive test names
-
-## Documentation
-
-- Update README.md if needed
-- Add comments to complex code
-- Document new features
-- Update CHANGELOG.md
-
-## Docker Development
-
-### Build Docker Image
-```bash
-docker build -t shof-tv:dev .
-```
-
-### Run with Docker Compose
-```bash
-docker-compose up
-```
+1. Update documentation if needed
+2. Add/update tests for new features
+3. Ensure all tests pass locally
+4. Request review from code owners
+5. Address review feedback
+6. Squash commits if requested
 
 ## Reporting Issues
 
-When reporting issues, please include:
-- Clear description of the problem
-- Steps to reproduce
-- Expected vs actual behavior
-- Environment details (OS, browser, Node version)
-- Screenshots if applicable
+### Bug Reports
+- Use the bug report template
+- Provide reproduction steps
+- Include screenshots/logs
+- Specify your environment
+
+### Feature Requests
+- Use the feature request template
+- Explain the use case
+- Suggest implementation if possible
+
+### Questions
+- Use the question template
+- Search existing issues first
+- Be specific and detailed
+
+## Code Review
+
+- Be respectful and constructive
+- Focus on code, not the person
+- Ask questions rather than make demands
+- Acknowledge good work
 
 ## Questions?
 
-Feel free to open an issue or discussion for questions.
+- Check existing documentation in `/docs`
+- Search existing issues
+- Open a question issue
+- Contact maintainers
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same license as the project.
+By contributing, you agree that your contributions will be licensed under the project's license.
 
 ---
 
-Thank you for contributing to Shof TV! 🎉
+Thank you for contributing to ShofTV! 🎉

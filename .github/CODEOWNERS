@@ -1,0 +1,42 @@
+# ShofTV Code Owners
+# This file defines code ownership for different parts of the project
+# Reference: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners - required for all PRs
+* @Mostafa-SAID7
+
+# Frontend - Angular components and templates
+/src/app/ @Mostafa-SAID7
+/src/app/components/ @Mostafa-SAID7
+/src/app/pages/ @Mostafa-SAID7
+/src/app/services/ @Mostafa-SAID7
+/src/app/models/ @Mostafa-SAID7
+/src/app/guards/ @Mostafa-SAID7
+/src/app/interceptors/ @Mostafa-SAID7
+
+# Styling and assets
+/src/assets/ @Mostafa-SAID7
+/src/styles/ @Mostafa-SAID7
+/public/ @Mostafa-SAID7
+
+# Configuration files
+/angular.json @Mostafa-SAID7
+/tsconfig*.json @Mostafa-SAID7
+/tailwind.config.js @Mostafa-SAID7
+/postcss.config.js @Mostafa-SAID7
+
+# Build and deployment
+/vercel.json @Mostafa-SAID7
+/Dockerfile @Mostafa-SAID7
+/docker-compose.yml @Mostafa-SAID7
+/nginx.conf @Mostafa-SAID7
+/.npmrc @Mostafa-SAID7
+/.nvmrc @Mostafa-SAID7
+
+# Documentation
+/docs/ @Mostafa-SAID7
+*.md @Mostafa-SAID7
+
+# CI/CD workflows
+/.github/workflows/ @Mostafa-SAID7
+/.github/dependabot.yml @Mostafa-SAID7
