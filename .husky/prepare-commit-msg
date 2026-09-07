@@ -1,0 +1,26 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# This hook prepares a commit message template when using git commit without -m flag
+# The template helps users follow conventional commits format
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# Only add template for new commits, not for merges, squashes, etc.
+if [ -z "$COMMIT_SOURCE" ]; then
+  # Uncomment the line below to enable automatic commit message template
+  # cat >> "$COMMIT_MSG_FILE" << 'EOF'
+  # 
+  # # Conventional Commits format:
+  # # type(scope): subject
+  # #
+  # # Types: feat, fix, docs, style, refactor, perf, test, chore, ci, build, revert
+  # #
+  # # Examples:
+  # # feat(auth): add OAuth2 support
+  # # fix(player): correct video playback on mobile
+  # # docs: update README with installation steps
+  # # chore(deps): bump Angular to 19.2.25
+  # EOF
+fi
