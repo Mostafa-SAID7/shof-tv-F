@@ -7,20 +7,23 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <!-- Main Navbar -->
-    <nav class="flex items-center justify-between px-6 lg:px-12 py-4">
+    <nav class="absolute top-0 left-0 right-0 z-40 px-5 py-5 lg:px-10">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Logo -->
-      <a routerLink="/" class="flex items-center gap-0 text-2xl font-black tracking-tight">
-        <!-- Logo removed -->
+      <a routerLink="/" class="flex items-center gap-3 text-xl font-bold tracking-tight group">
+        <span class="w-9 h-9 rounded-xl bg-primary text-primary-foreground grid place-items-center shadow-lg shadow-primary/20 group-hover:rotate-[-8deg] transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="m3 5 3.5 1.7L12 4l5.5 2.7L21 5v2l-3.5 1.7v7.7L12 19l-5.5-2.6V8.7L3 7V5Zm5.5 4.6v5.6l3.5 1.7 3.5-1.7V9.6L12 8 8.5 9.6Z"/></svg>
+        </span>
+        <span class="text-foreground">shof<span class="text-primary">tv</span></span>
       </a>
 
       <!-- Center Nav Links (Desktop) -->
       @if (navStyle === 'pill') {
-        <div class="hidden md:flex items-center bg-secondary/60 border border-border rounded-full px-1 py-1">
+        <div class="hidden md:flex items-center glass rounded-full px-1.5 py-1.5">
           @for (link of centerLinks; track link.label) {
             <a
               [routerLink]="link.route"
-              class="px-5 py-2 text-sm font-medium rounded-full transition-colors"
+              class="px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] rounded-full transition-colors"
               [class.text-primary]="link.active"
               [class.text-secondary-foreground]="!link.active"
               [class.hover:text-foreground]="!link.active"
@@ -30,11 +33,11 @@ import { RouterModule } from '@angular/router';
           }
         </div>
       } @else {
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-7">
           @for (link of centerLinks; track link.label) {
             <a
               [routerLink]="link.route"
-              class="text-sm font-medium transition-colors"
+              class="text-xs font-semibold uppercase tracking-[0.14em] transition-colors"
               [class.text-primary]="link.active"
               [class.text-secondary-foreground]="!link.active"
               [class.hover:text-foreground]="!link.active"
@@ -46,10 +49,10 @@ import { RouterModule } from '@angular/router';
       }
 
       <!-- Right Side -->
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-4">
         @for (action of rightActions; track action.label) {
           @if (action.style === 'text') {
-            <a [routerLink]="action.route" class="text-sm font-medium text-secondary-foreground hover:text-foreground transition-colors">
+            <a [routerLink]="action.route" class="text-xs font-semibold uppercase tracking-[0.14em] text-secondary-foreground hover:text-foreground transition-colors">
               {{ action.label }}
             </a>
           }
@@ -64,7 +67,7 @@ import { RouterModule } from '@angular/router';
           @if (action.style === 'primary') {
             <a
               [routerLink]="action.route"
-              class="text-sm font-semibold bg-primary text-primary-foreground px-5 py-2 rounded-full hover:brightness-110 transition-all"
+              class="text-xs font-bold uppercase tracking-[0.14em] bg-primary text-primary-foreground px-5 py-3 rounded-full hover:brightness-110 transition-all shadow-lg shadow-primary/10"
             >
               {{ action.label }}
             </a>
@@ -95,14 +98,12 @@ import { RouterModule } from '@angular/router';
           </svg>
         }
       </button>
+      </div>
     </nav>
-
-    <!-- Separator -->
-    <div class="h-px bg-border"></div>
 
     <!-- Mobile Menu -->
     @if (mobileOpen()) {
-      <div class="md:hidden bg-background border-b border-border px-6 py-4 flex flex-col gap-3 animate-fade-in">
+      <div class="md:hidden absolute top-[76px] left-4 right-4 z-50 glass rounded-2xl p-5 flex flex-col gap-3 animate-fade-in shadow-2xl">
         @for (link of centerLinks; track link.label) {
           <a
             [routerLink]="link.route"
@@ -140,8 +141,15 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
   @Input() navStyle: 'pill' | 'plain' = 'pill';
-  @Input() centerLinks: { label: string; route: string; active?: boolean }[] = [];
-  @Input() rightActions: { label: string; route: string; style: 'text' | 'outline' | 'primary' | 'icon' }[] = [];
+  @Input() centerLinks: { label: string; route: string; active?: boolean }[] = [
+    { label: 'Discover', route: '/' },
+    { label: 'About', route: '/about' },
+    { label: 'Help', route: '/help' },
+  ];
+  @Input() rightActions: { label: string; route: string; style: 'text' | 'outline' | 'primary' | 'icon' }[] = [
+    { label: 'Sign in', route: '/forgot-password', style: 'text' },
+    { label: 'Join free', route: '/gift-cards', style: 'primary' },
+  ];
 
   mobileOpen = signal(false);
 }

@@ -5,7 +5,8 @@ interface ContentItem {
   title: string;
   category: string;
   badge: string;
-  gradient: string;
+  image: string;
+  meta: string;
 }
 
 @Component({
@@ -18,19 +19,16 @@ interface ContentItem {
         <!-- Section Header -->
         <div class="flex items-end justify-between mb-10">
           <div>
-            <span
-              class="text-xs font-semibold text-primary tracking-widest uppercase"
-              >Popular Now</span
-            >
+            <span class="eyebrow">A little inspiration</span>
             <h2
-              class="mt-3 text-3xl sm:text-4xl font-display font-bold text-foreground tracking-tight"
+              class="mt-3 text-3xl sm:text-4xl font-bold tracking-[-0.04em] text-foreground"
             >
               Trending Content
             </h2>
           </div>
           <div class="hidden sm:flex items-center gap-2">
             <button
-              class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+              class="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
               (click)="scrollCarousel('left')"
               aria-label="Scroll left"
             >
@@ -49,7 +47,7 @@ interface ContentItem {
               </svg>
             </button>
             <button
-              class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+              class="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
               (click)="scrollCarousel('right')"
               aria-label="Scroll right"
             >
@@ -74,7 +72,7 @@ interface ContentItem {
         <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2">
           <button
             *ngFor="let cat of categories"
-            class="shrink-0 text-sm font-medium px-5 py-2 rounded-full transition-colors"
+            class="shrink-0 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 rounded-full transition-colors"
             [class.bg-primary]="activeCategory === cat"
             [class.text-primary-foreground]="activeCategory === cat"
             [class.bg-secondary]="activeCategory !== cat"
@@ -97,9 +95,10 @@ interface ContentItem {
             class="shrink-0 w-64 sm:w-72 scroll-snap-center group cursor-pointer"
           >
             <div
-              class="relative aspect-[3/4] rounded-xl overflow-hidden"
-              [class]="item.gradient"
+              class="relative aspect-[3/4] rounded-2xl overflow-hidden bg-secondary border border-white/10"
             >
+              <img [src]="item.image" [alt]="item.title + ' key art'" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/15"></div>
               <!-- Overlay on hover -->
               <div
                 class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -108,7 +107,7 @@ interface ContentItem {
               <!-- Badge -->
               <div class="absolute top-3 left-3">
                 <span
-                  class="bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wide"
+                  class="bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide"
                   >{{ item.badge }}</span
                 >
               </div>
@@ -118,7 +117,7 @@ interface ContentItem {
                 class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
                 <div
-                  class="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center"
+                  class="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center scale-90 group-hover:scale-100 transition-transform"
                 >
                   <svg
                     class="w-6 h-6 text-primary-foreground ml-0.5"
@@ -138,7 +137,7 @@ interface ContentItem {
                   {{ item.category }}
                 </span>
                 <h3 class="text-sm font-display font-semibold text-foreground mt-1">
-                  {{ item.title }}
+                    {{ item.title }}
                 </h3>
               </div>
             </div>
@@ -148,7 +147,7 @@ interface ContentItem {
               <h3 class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                 {{ item.title }}
               </h3>
-              <p class="text-xs text-muted-foreground mt-0.5">{{ item.category }}</p>
+              <p class="text-xs text-muted-foreground mt-0.5">{{ item.category }} <span class="mx-1 text-white/20">•</span> {{ item.meta }}</p>
             </div>
           </div>
         </div>
@@ -164,16 +163,12 @@ export class ContentCarouselComponent {
   categories = ['All', 'Live', 'Movies', 'Series', 'Sports', 'Kids'];
 
   contentItems: ContentItem[] = [
-    { title: 'Desert Nights', category: 'Series', badge: 'New', gradient: 'bg-gradient-to-br from-primary/40 to-secondary' },
-    { title: 'Champions League Live', category: 'Sports', badge: 'Live', gradient: 'bg-gradient-to-br from-accent/40 to-secondary' },
-    { title: 'City Lights', category: 'Movies', badge: 'HD', gradient: 'bg-gradient-to-br from-primary/30 to-muted' },
-    { title: 'Morning Buzz', category: 'Live', badge: 'Live', gradient: 'bg-gradient-to-br from-accent/30 to-muted' },
-    { title: 'Cartoon World', category: 'Kids', badge: 'Fun', gradient: 'bg-gradient-to-br from-primary/40 to-accent/20' },
-    { title: 'The Grand Tour', category: 'Series', badge: 'Top', gradient: 'bg-gradient-to-br from-secondary to-primary/30' },
-    { title: 'Ocean Blue', category: 'Movies', badge: '4K', gradient: 'bg-gradient-to-br from-muted to-accent/30' },
-    { title: 'Premier League', category: 'Sports', badge: 'Live', gradient: 'bg-gradient-to-br from-primary/30 to-secondary' },
-    { title: 'Tiny Explorers', category: 'Kids', badge: 'New', gradient: 'bg-gradient-to-br from-accent/30 to-primary/20' },
-    { title: 'Breaking News 24', category: 'Live', badge: 'Live', gradient: 'bg-gradient-to-br from-primary/50 to-secondary' },
+    { title: 'After the Last Light', category: 'Series', badge: 'New', meta: '8 episodes', image: '/generated_images/shoftv-poster-desert.jpg' },
+    { title: 'Blue Note', category: 'Movies', badge: '4K', meta: '2h 04m', image: '/generated_images/shoftv-poster-jazz.jpg' },
+    { title: 'Neon Hours', category: 'Movies', badge: 'Top 10', meta: '1h 51m', image: '/generated_images/shoftv-poster-rain.jpg' },
+    { title: 'August, Again', category: 'Series', badge: 'New', meta: '6 episodes', image: '/generated_images/shoftv-poster-summer.jpg' },
+    { title: 'The Long Round', category: 'Sports', badge: 'Original', meta: '1h 47m', image: '/generated_images/shoftv-poster-fight.jpg' },
+    { title: 'Desert Lines', category: 'Movies', badge: 'HD', meta: '2h 12m', image: '/generated_images/shoftv-poster-desert.jpg' },
   ];
 
   get filteredContent(): ContentItem[] {

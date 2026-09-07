@@ -33,11 +33,11 @@ import { CommonModule } from '@angular/common';
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
             *ngFor="let feature of features; let i = index"
-            class="group relative bg-card border border-border rounded-2xl p-6 lg:p-8 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+            class="group relative bg-card/70 border border-white/10 rounded-2xl p-6 lg:p-8 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:bg-card"
           >
             <!-- Icon -->
             <div
-              class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors"
+              class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-colors"
               [class]="feature.iconBg"
             >
               <svg

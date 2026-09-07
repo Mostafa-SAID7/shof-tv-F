@@ -8,6 +8,7 @@ interface ConcessionItem {
   price: number;
   description: string;
   category: string;
+  image: string;
 }
 
 interface CartItem {
@@ -57,11 +58,9 @@ interface CartItem {
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               @for (item of filteredItems(); track item.name) {
                 <div class="flex flex-col">
-                  <!-- Image Placeholder -->
-                  <div class="w-full aspect-square rounded-xl bg-secondary border border-border mb-3 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-muted-foreground/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
+                  <div class="relative w-full aspect-square rounded-2xl bg-secondary border border-white/10 mb-3 overflow-hidden group">
+                    <img [src]="item.image" [alt]="item.name" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   </div>
                   <div class="flex items-start justify-between mb-1">
                     <h3 class="text-sm font-semibold text-foreground">{{ item.name }}</h3>
@@ -171,17 +170,17 @@ export class ConcessionsComponent {
   activeTab = signal('popcorn');
 
   items: ConcessionItem[] = [
-    { name: 'Large Popcorn', price: 8.00, description: 'Classic buttery goodness, big enough to share.', category: 'popcorn' },
-    { name: 'Medium Popcorn', price: 6.00, description: 'Perfectly portioned for one hungry moviegoer.', category: 'popcorn' },
-    { name: 'Small Popcorn', price: 4.50, description: 'A quick snack to satisfy the craving.', category: 'popcorn' },
-    { name: 'Caramel Corn', price: 7.50, description: 'Sweet and crunchy caramel-coated delight.', category: 'popcorn' },
-    { name: 'Large Soda', price: 5.00, description: 'Choose from Coke, Sprite, or Fanta.', category: 'drinks' },
-    { name: 'Medium Soda', price: 4.00, description: 'The perfect companion to your popcorn.', category: 'drinks' },
-    { name: 'Water Bottle', price: 3.00, description: 'Pure spring water in a recyclable bottle.', category: 'drinks' },
-    { name: 'Nachos', price: 6.50, description: 'Crunchy tortilla chips with warm cheese sauce.', category: 'snacks' },
-    { name: 'Candy Bar', price: 4.00, description: 'Choose from M&Ms, Snickers, or Reeses.', category: 'snacks' },
-    { name: 'Movie Night Combo', price: 15.00, description: 'Large popcorn + 2 large sodas + candy.', category: 'combos' },
-    { name: 'Date Night Combo', price: 22.00, description: '2 large popcorns + 2 drinks + nachos.', category: 'combos' },
+    { name: 'Large Popcorn', price: 8.00, description: 'Classic buttery goodness, big enough to share.', category: 'popcorn', image: '/generated_images/shoftv-poster-summer.jpg' },
+    { name: 'Medium Popcorn', price: 6.00, description: 'Perfectly portioned for one hungry moviegoer.', category: 'popcorn', image: '/generated_images/shoftv-poster-jazz.jpg' },
+    { name: 'Small Popcorn', price: 4.50, description: 'A quick snack to satisfy the craving.', category: 'popcorn', image: '/generated_images/shoftv-poster-desert.jpg' },
+    { name: 'Caramel Corn', price: 7.50, description: 'Sweet and crunchy caramel-coated delight.', category: 'popcorn', image: '/generated_images/shoftv-poster-fight.jpg' },
+    { name: 'Large Soda', price: 5.00, description: 'Choose from Coke, Sprite, or Fanta.', category: 'drinks', image: '/generated_images/shoftv-poster-rain.jpg' },
+    { name: 'Medium Soda', price: 4.00, description: 'The perfect companion to your popcorn.', category: 'drinks', image: '/generated_images/shoftv-poster-summer.jpg' },
+    { name: 'Water Bottle', price: 3.00, description: 'Pure spring water in a recyclable bottle.', category: 'drinks', image: '/generated_images/shoftv-poster-desert.jpg' },
+    { name: 'Nachos', price: 6.50, description: 'Crunchy tortilla chips with warm cheese sauce.', category: 'snacks', image: '/generated_images/shoftv-poster-jazz.jpg' },
+    { name: 'Candy Bar', price: 4.00, description: 'Choose from M&Ms, Snickers, or Reeses.', category: 'snacks', image: '/generated_images/shoftv-poster-rain.jpg' },
+    { name: 'Movie Night Combo', price: 15.00, description: 'Large popcorn + 2 large sodas + candy.', category: 'combos', image: '/generated_images/shoftv-cinema.jpg' },
+    { name: 'Date Night Combo', price: 22.00, description: '2 large popcorns + 2 drinks + nachos.', category: 'combos', image: '/generated_images/shoftv-hero.jpg' },
   ];
 
   filteredItems = computed(() =>
@@ -189,8 +188,8 @@ export class ConcessionsComponent {
   );
 
   cartItems = signal<CartItem[]>([
-    { item: { name: 'Large Popcorn', price: 8.00, description: '', category: 'popcorn' }, qty: 1 },
-    { item: { name: 'Large Soda', price: 5.00, description: '', category: 'drinks' }, qty: 1 },
+    { item: { name: 'Large Popcorn', price: 8.00, description: '', category: 'popcorn', image: '/generated_images/shoftv-poster-summer.jpg' }, qty: 1 },
+    { item: { name: 'Large Soda', price: 5.00, description: '', category: 'drinks', image: '/generated_images/shoftv-poster-rain.jpg' }, qty: 1 },
   ]);
 
   cart = computed(() => this.cartItems());

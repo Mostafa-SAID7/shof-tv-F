@@ -42,7 +42,7 @@ interface PricingPlan {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           <div
             *ngFor="let plan of plans"
-            class="relative bg-card border rounded-2xl p-6 lg:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1"
+            class="relative bg-card/70 border rounded-2xl p-6 lg:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:bg-card"
             [class.border-primary]="plan.popular"
             [class.border-border]="!plan.popular"
             [class.shadow-2xl]="plan.popular"
@@ -54,7 +54,7 @@ interface PricingPlan {
               class="absolute -top-3.5 left-1/2 -translate-x-1/2"
             >
               <span
-                class="bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full"
+                class="bg-primary text-primary-foreground text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full"
                 >Most Popular</span
               >
             </div>
@@ -100,7 +100,7 @@ interface PricingPlan {
             </ul>
 
             <button
-              class="w-full py-3.5 rounded-lg font-semibold text-sm transition-colors"
+              class="w-full py-3.5 rounded-xl font-semibold text-sm transition-colors"
               [class.bg-primary]="plan.popular"
               [class.text-primary-foreground]="plan.popular"
               [class.hover:bg-primary/90]="plan.popular"

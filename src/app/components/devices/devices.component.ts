@@ -13,10 +13,10 @@ import { CommonModule } from '@angular/common';
           <div class="flex-1 w-full">
             <div class="relative">
               <!-- Large TV/Desktop -->
-              <div
-                class="bg-card border border-border rounded-2xl overflow-hidden shadow-2xl shadow-primary/5"
-              >
-                <div class="aspect-video bg-gradient-to-br from-secondary to-muted relative">
+              <div class="bg-card border border-border rounded-2xl overflow-hidden shadow-2xl shadow-primary/5">
+                <div class="aspect-video relative overflow-hidden">
+                  <img src="/generated_images/shoftv-cinema.jpg" alt="ShofTV playing on a cinema screen" class="absolute inset-0 h-full w-full object-cover" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20"></div>
                   <div class="absolute inset-0 flex items-center justify-center">
                     <div class="text-center">
                       <div
@@ -36,7 +36,7 @@ import { CommonModule } from '@angular/common';
                           />
                         </svg>
                       </div>
-                      <p class="text-muted-foreground text-sm font-medium">Smart TV</p>
+                        <p class="text-white text-sm font-semibold">Watch it your way</p>
                     </div>
                   </div>
                 </div>
@@ -47,8 +47,9 @@ import { CommonModule } from '@angular/common';
                 class="absolute -bottom-6 -right-4 lg:-right-8 w-32 lg:w-44 bg-card border border-border rounded-xl overflow-hidden shadow-xl shadow-background/80"
               >
                 <div
-                  class="aspect-[3/4] bg-gradient-to-br from-muted to-secondary relative"
+                  class="aspect-[3/4] bg-secondary relative overflow-hidden"
                 >
+                  <img src="/generated_images/shoftv-poster-jazz.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
                   <div class="absolute inset-0 flex items-center justify-center">
                     <svg
                       class="w-6 h-6 text-accent"
@@ -72,8 +73,9 @@ import { CommonModule } from '@angular/common';
                 class="absolute -bottom-4 left-4 lg:left-12 w-20 lg:w-24 bg-card border border-border rounded-lg overflow-hidden shadow-xl shadow-background/80"
               >
                 <div
-                  class="aspect-[9/16] bg-gradient-to-br from-secondary to-primary/10 relative"
+                  class="aspect-[9/16] bg-secondary relative overflow-hidden"
                 >
+                  <img src="/generated_images/shoftv-poster-rain.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-80" />
                   <div class="absolute inset-0 flex items-center justify-center">
                     <svg
                       class="w-5 h-5 text-primary"

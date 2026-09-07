@@ -2,28 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
 
 :root {
-  --background: #0d0d0a;
-  --background-elevated: #161612;
-  --foreground: #f5f5f0;
-  --card: #1a1a14;
-  --card-foreground: #e8e8e0;
-  --primary: #f5c518;
-  --primary-foreground: #0d0d0a;
-  --secondary: #1e1e16;
-  --secondary-foreground: #c0c0b0;
-  --muted: #252520;
-  --muted-foreground: #8a8a78;
-  --accent: #f5c518;
-  --accent-foreground: #0d0d0a;
-  --border: #2a2a22;
-  --border-highlight: #3a3a2e;
-  --ring: #f5c518;
-  --radius: 0.5rem;
+  --background: #0b0b0d;
+  --background-elevated: #141317;
+  --foreground: #f8f5ef;
+  --card: #17161b;
+  --card-foreground: #eee8df;
+  --primary: #f2b544;
+  --primary-foreground: #17110a;
+  --secondary: #211f24;
+  --secondary-foreground: #c7c0ba;
+  --muted: #2c2930;
+  --muted-foreground: #918b8b;
+  --accent: #c94d3f;
+  --accent-foreground: #fff8f0;
+  --border: #302c33;
+  --border-highlight: #514852;
+  --ring: #f2b544;
+  --radius: 0.75rem;
   --destructive: #dc2626;
-  --success: #22c55e;
+  --success: #5fcf8a;
 }
 
 * {
@@ -37,12 +37,25 @@ html {
 }
 
 body {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "DM Sans", system-ui, sans-serif;
   background-color: var(--background);
   color: var(--foreground);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+a, button, input, textarea, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(242, 181, 68, 0.3);
+  color: var(--foreground);
 }
 
 /* Custom scrollbar */
@@ -148,7 +161,7 @@ body {
 
 /* Button base styles */
 .btn-primary {
-  @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded transition-all duration-200;
+  @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all duration-200;
 }
 
 .btn-primary:hover {
@@ -157,7 +170,7 @@ body {
 }
 
 .btn-outline {
-  @apply border border-border text-foreground font-medium px-6 py-3 rounded transition-all duration-200;
+  @apply border border-border text-foreground font-medium px-6 py-3 rounded-xl transition-all duration-200;
 }
 
 .btn-outline:hover {
@@ -176,7 +189,17 @@ body {
 
 /* Section spacing */
 .section-padding {
-  @apply px-4 py-16 md:px-8 lg:px-16 lg:py-24;
+  @apply px-4 py-20 md:px-8 lg:px-12 lg:py-28;
+}
+
+.glass {
+  background: rgba(23, 22, 27, 0.74);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.eyebrow {
+  @apply text-[11px] font-bold uppercase tracking-[0.24em] text-primary;
 }
 
 /* Scroll snap for carousels */
