@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2](https://github.com/Mostafa-SAID7/shof-tv-F/compare/v1.1.1...v1.1.2) (2026-09-08)
+
+
+### Bug Fixes
+
+* **ci:** skip vercel pull and create project config directly ([1b95b31](https://github.com/Mostafa-SAID7/shof-tv-F/commit/1b95b31f2af9eaae90d1770a0fa52f562eafb4d4))
+
 ## [1.1.1](https://github.com/Mostafa-SAID7/shof-tv-F/compare/v1.1.0...v1.1.1) (2026-09-08)
 
 
