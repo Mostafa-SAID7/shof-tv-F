@@ -110,9 +110,9 @@
     [
       "@semantic-release/github",
       {
-        "successComment": "🎉 This issue has been resolved in version ${nextRelease.version} [Release Notes](https://github.com/${owner}/${repo}/releases/tag/${nextRelease.gitTag})",
+        "successComment": "🎉 This issue has been resolved in version ${nextRelease.version}",
         "failTitle": "The automated release from the main branch failed",
-        "failComment": "The release failed with the following error:\n\n```\n${error.message}\n```\n\nPlease check the [GitHub Actions logs](https://github.com/${owner}/${repo}/actions/runs/${runId}) for more details."
+        "failComment": "The release failed with the following error:\n\n```\n${errors[0].message}\n```"
       }
     ]
   ],
