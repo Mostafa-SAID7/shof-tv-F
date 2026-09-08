@@ -1,7 +1,9 @@
 name: Deploy to Vercel
 
 on:
-  workflow_dispatch:  # Manual trigger only - auto-deploy disabled
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
