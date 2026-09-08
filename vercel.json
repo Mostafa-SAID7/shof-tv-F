@@ -1,11 +1,8 @@
 {
-  "buildCommand": "pnpm build",
-  "outputDirectory": "dist/shoftv-landing",
-  "installCommand": "corepack enable && corepack prepare pnpm@9.15.4 --activate && pnpm install --frozen-lockfile",
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
   "framework": null,
-  "env": {
-    "NODE_ENV": "production"
-  },
   "routes": [
     {
       "src": "^/(?!.*\\.).*$",
