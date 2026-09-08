@@ -1,4 +1,20 @@
 # Support options for ShofTV
 # Reference: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
 
+# GitHub Sponsors
 github: [Mostafa-SAID7]
+
+# Patreon - Support on Patreon
+patreon: MostafaSaid
+
+# Ko-fi - Buy me a coffee alternative
+ko_fi: MostafaSaid
+
+# Liberapay - Open source funding platform
+liberapay: MostafaSaid
+
+# IssueHunt - Fund open source development
+issuehunt: MostafaSaid
+
+# Buy Me a Coffee
+custom: ['https://www.buymeacoffee.com/mssaid356p']
