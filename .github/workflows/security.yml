@@ -41,12 +41,14 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-esm-v1-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-pnpm-esm-v1-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          rm -rf node_modules
+          pnpm install --frozen-lockfile
 
       - name: pnpm audit
         run: pnpm audit --audit-level=moderate || true
