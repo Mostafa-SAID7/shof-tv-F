@@ -7,7 +7,7 @@ channel = "stable-25_05"
 expertMode = true
 
 [build]
-files = ["package.json", "package-lock.json", "angular.json", "tsconfig.json", "src"]
+files = ["package.json", "pnpm-lock.yaml", "vite.config.ts", "tsconfig.json", "src"]
 
 [workflows]
 runButton = "Start Development Server"
@@ -21,10 +21,9 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm install --legacy-peer-deps && npm start -- --host 0.0.0.0 --port 4200 --poll"
+args = "corepack enable && corepack prepare pnpm@9.15.4 --activate && pnpm install --frozen-lockfile && pnpm dev"
 waitForPort = 4200
 
 [[ports]]
 localPort = 4200
 externalPort = 80
-

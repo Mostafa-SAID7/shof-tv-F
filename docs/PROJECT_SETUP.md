@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-- **Node.js**: 18.x or higher
-- **npm**: 9.x or higher
+- **Node.js**: 20.17.0 (see `.nvmrc`)
+- **pnpm**: 9.15.4+ (managed via Corepack)
 - **Git**: Latest version
 - **Docker** (optional): For containerized development
 - **VS Code** (recommended): With Angular extensions
@@ -20,7 +20,7 @@ cd shof-tv
 ### 2. Install Dependencies
 
 ```bash
-npm install
+pnpm install --frozen-lockfile
 ```
 
 This will install all required packages listed in `package.json`.
@@ -46,7 +46,7 @@ ENABLE_ANALYTICS=true
 ### Start the Development Server
 
 ```bash
-npm start
+pnpm dev
 ```
 
 The application will be available at `http://localhost:4200`
@@ -66,7 +66,7 @@ Press `Ctrl+C` in the terminal.
 ### Build the Application
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Output will be in `dist/shoftv-landing/`
@@ -75,13 +75,13 @@ Output will be in `dist/shoftv-landing/`
 
 ```bash
 # Development build
-npm run build -- --configuration development
+pnpm dev
 
 # Production build (default)
-npm run build
+pnpm build
 
-# Watch mode (rebuild on changes)
-npm run watch
+# Preview production build
+pnpm preview
 ```
 
 ## Testing
@@ -89,25 +89,25 @@ npm run watch
 ### Run Unit Tests
 
 ```bash
-npm test
+pnpm test
 ```
 
 ### Run Tests in Watch Mode
 
 ```bash
-npm test -- --watch
+pnpm test -- --watch
 ```
 
 ### Run Tests with Coverage
 
 ```bash
-npm test -- --code-coverage
+pnpm test -- --code-coverage
 ```
 
 ### Run Specific Test File
 
 ```bash
-npm test -- --include='**/my-component.spec.ts'
+pnpm test -- --include='**/my-component.spec.ts'
 ```
 
 ## Linting
@@ -115,13 +115,13 @@ npm test -- --include='**/my-component.spec.ts'
 ### Check Code Quality
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 ### Fix Linting Issues
 
 ```bash
-npm run lint -- --fix
+pnpm lint -- --fix
 ```
 
 ## Docker Setup
@@ -250,7 +250,7 @@ npm install
 ```bash
 # Clean build
 rm -rf dist
-npm run build
+pnpm build
 
 # Check for TypeScript errors
 npx tsc --noEmit
@@ -282,8 +282,8 @@ git checkout -b feature/my-feature
 
 ### 3. Test Changes
 ```bash
-npm test
-npm run lint
+pnpm test
+pnpm lint
 ```
 
 ### 4. Commit Changes
@@ -305,18 +305,18 @@ git push origin feature/my-feature
 - Use Chrome DevTools for debugging
 
 ### Production
-- Always use `npm run build`
-- Check bundle size: `npm run build -- --stats-json`
+- Always use `pnpm build`
+- Check bundle size: `pnpm build -- --stats-json`
 - Analyze bundle: `npm install -g webpack-bundle-analyzer`
 
 ## Common Commands
 
 | Command | Description |
 |---------|-------------|
-| `npm start` | Start dev server |
-| `npm run build` | Build for production |
-| `npm test` | Run tests |
-| `npm run lint` | Check code quality |
+| `pnpm dev` | Start dev server |
+| `pnpm build` | Build for production |
+| `pnpm test` | Run tests |
+| `pnpm lint` | Check code quality |
 | `npm run watch` | Watch mode build |
 | `docker-compose up` | Start Docker services |
 | `git status` | Check git status |

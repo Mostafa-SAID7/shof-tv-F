@@ -13,7 +13,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
 
     steps:
@@ -22,20 +22,38 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          cache: 'npm'
+          node-version: '20.17.0'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.4
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
+        run: pnpm install --frozen-lockfile
 
       - name: Run linter
-        run: npm run lint
+        run: pnpm lint
+
+      - name: Build project
+        run: pnpm build
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
@@ -52,4 +70,3 @@ jobs:
             @semantic-release/github@9.2.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

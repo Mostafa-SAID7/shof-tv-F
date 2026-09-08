@@ -1,6 +1,7 @@
 version: 2
 updates:
-  # npm dependencies - STRICT MODE: patch updates only
+  # pnpm dependencies - STRICT MODE: patch updates only
+  # Note: GitHub Dependabot doesn't support pnpm ecosystem yet, use npm with pnpm-lock.yaml
   - package-ecosystem: "npm"
     directory: "/"
     schedule:

@@ -39,8 +39,8 @@ docker-compose up
 ### Development Server (without Docker)
 
 ```bash
-npm install
-npm start
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 Access at `http://localhost:4200`
@@ -124,9 +124,9 @@ The application includes health checks:
 
 1. Connect GitHub repository to Vercel
 2. Configure build settings:
-   - Build Command: `npm run build`
+   - Build Command: `pnpm build`
    - Output Directory: `dist/shoftv-landing`
-   - Install Command: `npm ci`
+   - Install Command: `pnpm install --frozen-lockfile`
 3. Set environment variables
 4. Deploy
 
