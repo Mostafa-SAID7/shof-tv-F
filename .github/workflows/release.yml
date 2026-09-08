@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.17.0'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@mostafa-said7'
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -72,3 +74,5 @@ jobs:
             @semantic-release/github@9.2.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}

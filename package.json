@@ -1,9 +1,17 @@
 {
-  "name": "shof-tv",
+  "name": "@mostafa-said7/shof-tv",
   "version": "1.1.4",
-  "private": true,
+  "private": false,
   "type": "module",
   "packageManager": "pnpm@9.15.4",
+  "description": "ShofTV - Modern Angular 19 streaming platform landing page with Vite",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mostafa-SAID7/shof-tv-F.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "engines": {
     "node": ">=20.17.0",
     "pnpm": ">=9.0.0"
