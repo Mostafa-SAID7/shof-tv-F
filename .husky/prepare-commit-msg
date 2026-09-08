@@ -1,5 +1,0 @@
-# This hook prepares a commit message template
-# Currently disabled - using conventional commits via commitlint
-
-exit 0
-
