@@ -55,11 +55,17 @@ jobs:
           test -f dist/shoftv-landing/index.html || (echo "ERROR: index.html not found" && exit 1)
           echo "✓ Build verified for deployment"
 
+      - name: Create Vercel build output structure
+        run: |
+          mkdir -p .vercel/output/static
+          cp -r dist/shoftv-landing/* .vercel/output/static/
+          echo '{"version": 3}' > .vercel/output/config.json
+
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+          vercel-args: '--prod --prebuilt'
           working-directory: ./
