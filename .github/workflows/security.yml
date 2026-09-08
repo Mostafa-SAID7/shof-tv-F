@@ -7,10 +7,16 @@ on:
     branches: [main, develop]
   schedule:
     - cron: '0 0 * * 0'  # Weekly on Sunday
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   security:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -19,16 +25,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: npm audit
         run: npm audit --audit-level=moderate
         continue-on-error: true
 
       - name: OWASP Dependency Check
-        uses: dependency-check/Dependency-Check_Action@main
+        uses: dependency-check/Dependency-Check_Action@7.5.0
         with:
           project: 'ShofTV'
           path: '.'
           format: 'JSON'
-          args: >
-            --enableExperimental
+        continue-on-error: true
+

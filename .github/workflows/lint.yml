@@ -5,10 +5,15 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
@@ -23,9 +28,8 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: npm run lint --if-present
-        continue-on-error: true
+        run: npm run lint
 
       - name: Check TypeScript
         run: npx tsc --noEmit
-        continue-on-error: true
+

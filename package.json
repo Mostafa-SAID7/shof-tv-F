@@ -2,6 +2,10 @@
   "name": "shof-tv",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.17.0 <21.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "npx ng serve --host 0.0.0.0 --port 4200",
@@ -42,7 +46,7 @@
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
-    "@typescript-eslint/utils": "^8.70.0",
+    "@typescript-eslint/utils": "^7.0.0",
     "autoprefixer": "^10.4.27",
     "commitlint": "^17.8.1",
     "eslint": "^8.0.0",
