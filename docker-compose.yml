@@ -5,29 +5,39 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
     container_name: shof-tv-app
     ports:
-      - "3000:3000"
+      - "8080:80"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    networks:
+      - shof-network
 
-  # Optional: Nginx reverse proxy
-  nginx:
+  # Optional: Nginx reverse proxy for SSL/HTTPS
+  nginx-proxy:
     image: nginx:alpine
-    container_name: shof-tv-nginx
+    container_name: shof-tv-nginx-proxy
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx-proxy.conf:/etc/nginx/nginx.conf:ro
       - ./ssl:/etc/nginx/ssl:ro
     depends_on:
       - shof-tv
     restart: unless-stopped
+    networks:
+      - shof-network
+
+networks:
+  shof-network:
+    driver: bridge
