@@ -23,6 +23,30 @@ export default defineConfig(({ mode }) => ({
       tsconfig: mode === 'test' ? 'tsconfig.spec.json' : 'tsconfig.app.json',
       inlineStylesExtension: 'css',
     }),
+    // Force correct MIME types for modules
+    {
+      name: 'configure-mime-types',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url?.endsWith('.js') || req.url?.endsWith('.mjs')) {
+            res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+          } else if (req.url?.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css; charset=utf-8');
+          }
+          next();
+        });
+      },
+      configurePreviewServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url?.endsWith('.js') || req.url?.endsWith('.mjs')) {
+            res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+          } else if (req.url?.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css; charset=utf-8');
+          }
+          next();
+        });
+      },
+    },
   ],
 
   server: {
@@ -42,6 +66,7 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist/shoftv-landing',
     emptyOutDir: true,
     target: 'es2022',
+    assetsInlineLimit: 0,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -49,6 +74,21 @@ export default defineConfig(({ mode }) => ({
           router: ['@angular/router'],
           rxjs: ['rxjs'],
         },
+        assetFileNames: (assetInfo) => {
+          if (!assetInfo.name) return `assets/[name]-[hash][extname]`;
+          
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(assetInfo.name)) {
+            return `assets/images/[name]-[hash][extname]`;
+          }
+          if (/\.(woff2?|eot|ttf|otf)$/i.test(assetInfo.name)) {
+            return `assets/fonts/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
+        },
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
       },
     },
     chunkSizeWarningLimit: 1200,
