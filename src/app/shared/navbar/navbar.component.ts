@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { SITE_NAV_ACTIONS, SITE_NAV_LINKS } from '../../core/navigation/site-navigation';
@@ -8,6 +8,7 @@ import { SiteAction, SiteLink } from '../../core/models/navigation.models';
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, RouterModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <nav class="absolute top-0 left-0 right-0 z-40 px-5 py-5 lg:px-10">
       <div class="max-w-7xl mx-auto flex items-center justify-between">

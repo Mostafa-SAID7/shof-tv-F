@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -6,9 +6,16 @@ import { RouterModule } from '@angular/router';
   selector: 'app-hero',
   standalone: true,
   imports: [CommonModule, RouterModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="relative isolate min-h-[720px] overflow-hidden lg:min-h-[800px]">
-       <img src="/home/hero.jpg" alt="A cinematic theatre audience watching a film" class="absolute inset-0 h-full w-full object-cover object-[58%_center]" />
+       <img 
+         src="/home/hero.jpg" 
+         alt="A cinematic theatre audience watching a film" 
+         class="absolute inset-0 h-full w-full object-cover object-[58%_center]"
+         fetchpriority="high"
+         loading="eager"
+       />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0b0b0d] via-[#0b0b0d]/85 to-[#0b0b0d]/10"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
       <div class="absolute -right-32 top-24 h-72 w-72 rounded-full bg-primary/10 blur-[100px]"></div>
@@ -19,7 +26,8 @@ import { RouterModule } from '@angular/router';
             <span class="h-px w-10 bg-primary"></span>
             <span class="eyebrow">Your seat is waiting</span>
           </div>
-          <h1 class="max-w-xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-7xl lg:text-[88px] animate-fade-in-up">
+          <!-- LCP element - NO animation delay -->
+          <h1 class="max-w-xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-7xl lg:text-[88px]">
             Stories that stay with you.
           </h1>
            <p class="mt-7 min-w-0 max-w-lg text-base leading-7 text-secondary-foreground sm:text-lg animate-fade-in-up" style="animation-delay: .12s">

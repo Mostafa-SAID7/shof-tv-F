@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LiveChatComponent } from './shared/live-chat/live-chat.component';
 
@@ -9,6 +9,7 @@ import { LiveChatComponent } from './shared/live-chat/live-chat.component';
     RouterOutlet,
     LiveChatComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <main class="min-h-screen">
       <router-outlet />

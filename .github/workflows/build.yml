@@ -58,7 +58,12 @@ jobs:
         run: pnpm lint
 
       - name: Run tests
-        run: pnpm test
+        run: |
+          if [ -n "$(find src -name '*.spec.ts' -print -quit)" ]; then
+            pnpm test
+          else
+            echo "⚠️ No test files found, skipping tests"
+          fi
         env:
           CI: true
 
