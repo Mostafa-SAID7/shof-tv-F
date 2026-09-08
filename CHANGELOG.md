@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.2.0](https://github.com/Mostafa-SAID7/shof-tv-F/compare/v1.1.4...v1.2.0) (2026-09-08)
+
+
+### Features
+
+* enable GitHub Packages publishing ([9693b86](https://github.com/Mostafa-SAID7/shof-tv-F/commit/9693b8651281e68170f59b3773584847e9ae6e8f))
+
 ## [1.1.4](https://github.com/Mostafa-SAID7/shof-tv-F/compare/v1.1.3...v1.1.4) (2026-09-08)
 
 
