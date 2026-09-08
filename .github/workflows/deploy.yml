@@ -3,11 +3,16 @@ name: Deploy to Vercel
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    timeout-minutes: 15
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v4
@@ -24,23 +29,17 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          test -d dist/shoftv-landing || (echo "ERROR: dist/shoftv-landing not found" && exit 1)
+          test -f dist/shoftv-landing/index.html || (echo "ERROR: index.html not found" && exit 1)
+
       - name: Deploy to Vercel
         uses: vercel/actions/deploy-prod@v27
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Add deployment status comment
-        if: always()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const status = '${{ job.status }}';
-            const message = status === 'success' 
-              ? '✅ Successfully deployed to Vercel'
-              : '❌ Deployment to Vercel failed';
-            console.log(message);
+
 
