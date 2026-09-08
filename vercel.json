@@ -1,8 +1,8 @@
 {
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "installCommand": null,
-  "framework": null,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/shoftv-landing",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "framework": "vite",
   "headers": [
     {
       "source": "/(.*).js",
