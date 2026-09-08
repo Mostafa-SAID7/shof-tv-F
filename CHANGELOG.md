@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1](https://github.com/Mostafa-SAID7/shof-tv-F/compare/v1.0.0...v1.0.1) (2026-09-08)
+
+
+### Bug Fixes
+
+* **ci:** remove undefined template variables in semantic-release ([3f57468](https://github.com/Mostafa-SAID7/shof-tv-F/commit/3f5746868f4847d86f639e7b2b0dc2c6ac1ba745))
+
 # 1.0.0 (2026-09-08)
 
 
