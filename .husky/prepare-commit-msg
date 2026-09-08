@@ -1,15 +1,5 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# This hook prepares a commit message template
+# Currently disabled - using conventional commits via commitlint
 
-# This hook prepares a commit message template when using git commit without -m flag
-# The template helps users follow conventional commits format
-
-COMMIT_MSG_FILE=$1
-COMMIT_SOURCE=$2
-
-# Only add template for new commits, not for merges, squashes, etc.
-if [ -z "$COMMIT_SOURCE" ]; then
-  # Template is optional - commented out for now
-  true
-fi
+exit 0
 
